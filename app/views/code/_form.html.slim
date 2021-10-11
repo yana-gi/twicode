@@ -1,3 +1,5 @@
+link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/monokai-sublime.min.css"
+
 = form_with scope: :code, url: code_index_path do |f|
   - if @code.errors.any?
     #error_explanation
@@ -5,8 +7,10 @@
       ul
         - @code.errors.full_messages.each do |message|
           li = message
-
   .field
     = f.label :body
-    = f.text_area :body
+    = f.text_area :body, placeholder: "input your code", size: "60x12"
+  .field
+    pre
+      code
   .actions = f.submit

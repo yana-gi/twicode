@@ -8,6 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+require('../code/form')
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
