@@ -11,6 +11,15 @@ link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/
     = f.label :body
     = f.text_area :body, placeholder: "input your code", size: "60x12"
   .field
+    | 言語
+    select#parse_language[name="parse[language]"]
+      option[value="ruby"]
+        | Ruby
+      option[value="javascript"]
+        | JavaScript
+      option[value="html"]
+        | HTML
+  .field
     pre
       code
   .actions = f.submit
