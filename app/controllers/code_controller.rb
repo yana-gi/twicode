@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CodeController < ApplicationController
-  before_action :set_code, only: %i[ show edit update destroy ]
+  before_action :set_code, only: %i[show update destroy]
 
   # GET /code or /code.json
   def index
@@ -7,8 +9,7 @@ class CodeController < ApplicationController
   end
 
   # GET /code/1 or /code/1.json
-  def show
-  end
+  def show; end
 
   # GET /code/new
   def new
@@ -21,7 +22,7 @@ class CodeController < ApplicationController
 
     respond_to do |format|
       if @code.save
-        format.html { redirect_to @code, notice: "Code was successfully created." }
+        format.html { redirect_to @code, notice: 'Code was successfully created.' }
         format.json { render :show, status: :created, location: @code }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,7 +35,7 @@ class CodeController < ApplicationController
   def update
     respond_to do |format|
       if @code.update(code_params)
-        format.html { redirect_to @code, notice: "Code was successfully updated." }
+        format.html { redirect_to @code, notice: 'Code was successfully updated.' }
         format.json { render :show, status: :ok, location: @code }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,19 +48,20 @@ class CodeController < ApplicationController
   def destroy
     @code.destroy
     respond_to do |format|
-      format.html { redirect_to code_index_url, notice: "Code was successfully destroyed." }
+      format.html { redirect_to code_index_url, notice: 'Code was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_code
-      @code = Code.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def code_params
-      params.require(:code).permit(:body)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_code
+    @code = Code.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def code_params
+    params.require(:code).permit(:body)
+  end
 end
