@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CodeController < ApplicationController
-  before_action :set_code, only: %i[show update destroy]
+  before_action :set_code, only: %i[show destroy]
 
   def index
     @code = Code.all
@@ -16,35 +16,16 @@ class CodeController < ApplicationController
   def create
     @code = Code.new(code_params)
 
-    respond_to do |format|
-      if @code.save
-        format.html { redirect_to @code, notice: 'Code was successfully created.' }
-        format.json { render :show, status: :created, location: @code }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @code.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @code.update(code_params)
-        format.html { redirect_to @code, notice: 'Code was successfully updated.' }
-        format.json { render :show, status: :ok, location: @code }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @code.errors, status: :unprocessable_entity }
-      end
+    if @code.save
+      redirect_to @code, notice: 'Code was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     @code.destroy
-    respond_to do |format|
-      format.html { redirect_to code_index_url, notice: 'Code was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to code_index_url, notice: 'Code was successfully destroyed.'
   end
 
   private
