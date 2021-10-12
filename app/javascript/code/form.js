@@ -1,4 +1,4 @@
-const hljs = require('highlight.js/lib/core');
+const hljs = require('highlight.js/lib/common');
 
 document.addEventListener('DOMContentLoaded', (event) => {
     hljs.highlightAll();
@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let precode = document.querySelector("pre code");
 
     textarea.addEventListener('input', highlight);
+
     function highlight() {
-        precode.innerText = textarea.value;
-        hljs.highlightElement(precode);
+        precode.innerHTML = hljs.highlight(textarea.value, {language: 'ruby'}).value
+        hljs.highlightAll();
     }
 });
