@@ -1,25 +1,33 @@
 link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/monokai-sublime.min.css"
 
-= form_with scope: :code, url: code_index_path do |f|
-  - if @code.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@code.errors.count, 'error')} prohibited this code from being saved:"
-      ul
-        - @code.errors.full_messages.each do |message|
-          li = message
-  .field
-    = f.label :body
-    = f.text_area :body, placeholder: "input your code", size: "60x12"
-  .field
-    | 言語
-    select#parse_language[name="parse[language]"]
-      option[value="ruby"]
-        | Ruby
-      option[value="javascript"]
-        | JavaScript
-      option[value="html"]
-        | HTML
-  .field
-    pre
-      code
-  .actions = f.submit
+.code-block
+  = form_with scope: :code, url: code_index_path do |f|
+    - if @code.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@code.errors.count, 'error')} prohibited this code from being saved:"
+        ul
+          - @code.errors.full_messages.each do |message|
+            li = message
+    .field
+      .label 言語
+      .control
+        .select
+          select#parse_language[name="parse[language]"]
+            option[value="ruby"]
+              | Ruby
+            option[value="javascript"]
+              | JavaScript
+            option[value="html"]
+              | HTML
+    .field
+      .label コード
+      .control
+        = f.text_area :body, placeholder: "input your code", class: "textarea"
+    .field
+      .label プレビュー
+      .control
+        pre
+          code
+    .field
+      .control
+      .actions = f.submit class: "button"
