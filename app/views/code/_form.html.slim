@@ -1,4 +1,4 @@
-= form_for @code do |f|
+= form_with scope: :code, url: code_index_path do |f|
   - if @code.errors.any?
     #error_explanation
       h2 = "#{pluralize(@code.errors.count, 'error')} prohibited this code from being saved:"
