@@ -1,0 +1,21 @@
+h1 Listing code
+
+table
+  thead
+    tr
+      th Body
+      th
+      th
+      th
+
+  tbody
+    - @code.each do |code|
+      tr
+        td = code.body
+        td = link_to 'Show', code
+        td = link_to 'Edit', edit_code_path(code)
+        td = link_to 'Destroy', code, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Code', new_code_path
