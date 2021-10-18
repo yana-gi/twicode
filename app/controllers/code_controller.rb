@@ -15,7 +15,6 @@ class CodeController < ApplicationController
 
   def create
     @code = Code.new(code_params)
-
     if @code.save
       redirect_to @code, notice: 'Code was successfully created.'
     else
@@ -35,6 +34,6 @@ class CodeController < ApplicationController
   end
 
   def code_params
-    params.require(:code).permit(:body)
+    params.require(:code).permit(:body, :image)
   end
 end
