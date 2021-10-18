@@ -16,12 +16,19 @@ document.addEventListener('turbolinks:load', (event) => {
         precode.className = language.value
         precode.innerHTML = hljs.highlight(textarea.value, {language: language.value}).value
         hljs.highlightAll();
-        getDataUrl(event).then((dataUrl) => {
-            hidden_image_url.setAttribute('value', dataUrl);
-        })
     }
 
-    async function getDataUrl(event) {
+    const form = document.querySelector('form');
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        getDataUrl().then((dataUrl) => {
+            hidden_image_url.setAttribute('value', dataUrl);
+        }).then(() => {
+            form.submit();
+        })
+    });
+
+    async function getDataUrl() {
         const canvas = await html2canvas(precode,{windowWidth:600, windowHeight:314})
         return canvas.toDataURL('image/jpeg')
     }
