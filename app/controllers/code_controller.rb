@@ -36,4 +36,8 @@ class CodeController < ApplicationController
   def code_params
     params.require(:code).permit(:body, :image)
   end
+
+  def image_data_url
+    params.require(:code).permit(:body, :image_url)
+  end
 end
