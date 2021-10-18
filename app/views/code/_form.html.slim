@@ -27,5 +27,9 @@
         pre
           code
     .field
+      .label 画像
+      .control
+        = f.file_field :image
+    .field
       .control
       .actions = f.submit class: "button"

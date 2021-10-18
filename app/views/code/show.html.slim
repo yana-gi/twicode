@@ -3,7 +3,11 @@ p#notice = notice
 p
   strong Body:
   = @code.body
-
+p
+  strong image:
+  p
+    - if @code.image.attached?
+      = image_tag @code.image
 => link_to 'Edit', edit_code_path(@code)
 '|
 =< link_to 'Back', code_index_path
