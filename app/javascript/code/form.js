@@ -1,4 +1,5 @@
 const hljs = require('highlight.js/lib/common');
+import html2canvas from 'html2canvas';
 
 document.addEventListener('turbolinks:load', (event) => {
     let textarea = document.querySelector("#code_body");
