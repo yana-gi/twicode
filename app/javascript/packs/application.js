@@ -10,6 +10,8 @@ import "channels"
 
 require('../code/form')
 
+import "../src/application.scss";
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

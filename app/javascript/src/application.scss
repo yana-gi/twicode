@@ -1,0 +1,18 @@
+@import '~bulma/css/bulma.min';
+
+.code-block textarea {
+    height: 200px;
+    width: 400px;
+    max-width: initial;
+    min-width: initial;
+}
+.code-block pre {
+    background-color: initial;
+    font-size: initial;
+    padding:initial;
+}
+.code-block pre code {
+    height: 200px;
+    width: 400px;
+    overflow: hidden;
+}
