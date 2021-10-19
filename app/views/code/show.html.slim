@@ -2,11 +2,13 @@ p#notice = notice
 
 p
   strong Body:
-  = @code.body
-p
-  strong image:
+  pre
+    code
+      = @code.body
+- if @code.image.attached?
   p
-    - if @code.image.attached?
+    strong image:
+    p
       = image_tag @code.image
 => link_to 'Edit', edit_code_path(@code)
 '|

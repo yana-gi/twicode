@@ -15,6 +15,8 @@ class CodeController < ApplicationController
 
   def create
     @code = Code.new(code_params)
+    @code.attach_blob(image_data_url)
+
     if @code.save
       redirect_to @code, notice: 'Code was successfully created.'
     else
@@ -38,6 +40,6 @@ class CodeController < ApplicationController
   end
 
   def image_data_url
-    params.require(:code).permit(:body, :image_url)
+    params.require(:code).permit(:image_data_url)[:image_data_url]
   end
 end

@@ -7,7 +7,7 @@ document.addEventListener('turbolinks:load', (event) => {
     const textarea = document.querySelector("#code_body");
     const precode = document.querySelector("pre code");
     const language = document.querySelector("#parse_language");
-    const hidden_image_url = document.querySelector('#code_image_url')
+    const hiddenImageDataUrl = document.querySelector('#code_image_data_url');
 
     if (form) {
         precode.className = "ruby hljs language-ruby"
@@ -17,8 +17,8 @@ document.addEventListener('turbolinks:load', (event) => {
 
         form.addEventListener("submit", function (event) {
             event.preventDefault();
-            getDataUrl().then((dataUrl) => {
-                hidden_image_url.setAttribute('value', dataUrl);
+            getImageDataUrl().then((imageDataUrl) => {
+                hiddenImageDataUrl.setAttribute('value', imageDataUrl);
             }).then(() => {
                 form.submit();
             })
@@ -31,8 +31,8 @@ document.addEventListener('turbolinks:load', (event) => {
         hljs.highlightAll();
     }
 
-    async function getDataUrl() {
+    async function getImageDataUrl() {
         const canvas = await html2canvas(precode,{windowWidth:600, windowHeight:314})
-        return canvas.toDataURL('image/jpeg')
+        return canvas.toDataURL('image/jpeg', 1.0)
     }
 });
