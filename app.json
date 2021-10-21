@@ -1,0 +1,13 @@
+{
+  "name":"twicode",
+  "scripts":{
+    "postdeploy": "bin/setup"
+  },
+  "env":{
+    "RACK_ENV": "review",
+    "RAILS_ENV": "review"
+  },
+  "addons":[
+    "heroku-postgresql"
+  ]
+}
