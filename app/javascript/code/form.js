@@ -9,6 +9,9 @@ document.addEventListener('turbolinks:load', (event) => {
     const language = document.querySelector("#parse_language");
     const hiddenImageDataUrl = document.querySelector('#code_image_data_url');
 
+    if (precode) {
+        hljs.highlightAll();
+    }
     if (form) {
         precode.className = "ruby hljs language-ruby"
 
