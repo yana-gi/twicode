@@ -10,6 +10,13 @@ html
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    nav.navbar.is-light
+      .navbar-brand
+        = link_to 'ついこーど', root_path, class: 'navbar-item'
+      .navbar-end
+        = link_to '新規作成', new_code_path, class: 'navbar-item'
+        = link_to '投稿一覧', code_index_path, class: 'navbar-item'
+        = link_to 'ログイン', code_index_path, class: 'navbar-item'
   body
     .container
       = yield
