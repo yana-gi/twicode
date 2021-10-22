@@ -10,8 +10,3 @@ section.hero
         = l code.created_at, format: :long
       div
         = link_to image_tag(code.image), code
-      div
-        = link_to 'Destroy', code, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button button is-light'
-    hr
-
-= link_to 'New Code', new_code_path, class: 'button button is-light'

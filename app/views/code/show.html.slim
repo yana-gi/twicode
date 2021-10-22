@@ -16,4 +16,7 @@ p
     p
       = image_tag @code.image
 
-= link_to 'Back', code_index_path, class: 'button button is-light'
+div
+  = link_to 'Destroy', @code, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-light'
+div
+  = link_to 'Back', code_index_path, class: 'button is-light'
