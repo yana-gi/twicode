@@ -1,5 +1,10 @@
+section.hero
+  .title.my-3
+    |  一覧
+
 .div
   - @code.each do |code|
+    hr
     .div
       div
         = l code.created_at, format: :long
