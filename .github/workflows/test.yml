@@ -20,7 +20,7 @@ jobs:
 
     env:
       RAILS_ENV: test
-      DATABASE_URL: "postgres://postgres:postgres@localhost/ci_test"
+      DATABASE_URL: "postgres://postgres:postgres@localhost/twicode_test"
       TZ: '/usr/share/zoneinfo/Asia/Tokyo'
 
     services:
@@ -29,7 +29,7 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -44,7 +44,22 @@ jobs:
       uses: ruby/setup-ruby@v1
     # uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
       with:
-        ruby-version: 3.0
+        ruby-version: '3.0'
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+
+    - name: Cache node modules
+      uses: actions/cache@v2.1.4
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: yarn install
+      run:  yarn install --check-files
+
+    - name: Setup test DB
+      run: bundle exec rails db:setup
+
     - name: Run tests
-      run: bundle exec rake
+      run: bundle exec rails test:all
