@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :production do
-  gem "aws-sdk-s3", require: false
+  gem 'aws-sdk-s3', require: false
 end
 
 group :development, :test do
@@ -63,5 +63,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem 'slim-rails'
 gem 'meta-tags'
+gem 'slim-rails'

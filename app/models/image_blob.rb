@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ImageBlob
   attr_reader :image_data_url
 
