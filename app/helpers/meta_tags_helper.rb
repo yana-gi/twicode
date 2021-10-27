@@ -21,10 +21,14 @@ module MetaTagsHelper
         card: 'summary_large_image',
         site: '@twicord_y',
         description: :description,
-        image: @page_image,
+        image: page_twitter_image,
         domain: 'https://twicode.herokuapp.com/'
       }
     }
   end
   # rubocop:enable Metrics/MethodLength
+
+  def page_twitter_image
+    @page_image || image_url('') # rubocop:disable Rails/HelperInstanceVariable
+  end
 end
