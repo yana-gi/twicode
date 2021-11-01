@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "lint": "run-p lint:*",
-    "lint:eslint": "eslint 'app/javascript/**/*.{js,vue}' --max-warnings=0",
-    "lint:prettier": "prettier app/javascript/**/*.{js,vue} --check"
+    "lint:eslint": "eslint 'app/javascript/**/*.js' --max-warnings=0",
+    "lint:prettier": "prettier app/javascript/**/*.js --check"
   },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
