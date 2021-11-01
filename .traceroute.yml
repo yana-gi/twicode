@@ -1,0 +1,4 @@
+ignore_unused_routes:
+  - rails\/.*
+ignore_unreachable_actions:
+  - rails\/.*
