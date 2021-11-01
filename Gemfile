@@ -54,6 +54,7 @@ group :development do
   gem 'slim_lint'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'traceroute'
 end
 
 group :test do
