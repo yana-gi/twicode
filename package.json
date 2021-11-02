@@ -6,9 +6,6 @@
     "lint:eslint": "eslint 'app/javascript/**/*.js' --max-warnings=0",
     "lint:prettier": "prettier app/javascript/**/*.js --check"
   },
-  "engines": {
-    "node": "16.x"
-  },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
@@ -23,7 +20,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "eslint": "^8.1.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
