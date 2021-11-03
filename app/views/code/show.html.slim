@@ -26,4 +26,4 @@ div
 div
   = link_to 'Destroy', @code, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-light'
 div
-  = link_to 'Back', code_index_path, class: 'button is-light'
+  = link_to 'Back', user_code_index_path(@code.user.id), class: 'button is-light'

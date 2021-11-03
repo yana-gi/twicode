@@ -4,7 +4,8 @@ class CodeController < ApplicationController
   before_action :set_code, only: %i[show destroy]
 
   def index
-    @code = Code.all
+    @user = User.find(params[:user_id] || current_user.id)
+    @code = @user.code
   end
 
   def show
