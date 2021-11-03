@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-  has_many :code
+  has_many :code, dependent: :destroy
 
   def self.find_or_create_from_auth_hash(auth_hash)
     uid = auth_hash[:uid]
