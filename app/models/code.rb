@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Code < ApplicationRecord
+  belongs_to :user
   has_one_attached :image
 
   enum language: {

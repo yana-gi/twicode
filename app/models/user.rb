@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :code
+
   def self.find_or_create_from_auth_hash(auth_hash)
     uid = auth_hash[:uid]
     twitter_id = auth_hash[:info][:nickname]
