@@ -16,7 +16,7 @@ class CodeController < ApplicationController
   end
 
   def create
-    @code = Code.new(code_params)
+    @code = current_user.code.new(code_params)
     @code.attach_blob(image_data_url)
 
     if @code.save
