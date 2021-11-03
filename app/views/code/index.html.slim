@@ -1,6 +1,9 @@
 section.hero
-  .title.my-3
-    |  一覧
+  .index-title-items
+    .index-title-item
+      = image_tag @user.twitter_icon, class: 'a-user-icon'
+    .title.my-3.index-title-item
+      = "#{@user.twitter_name}の投稿一覧"
 
 .div
   - @code.each do |code|

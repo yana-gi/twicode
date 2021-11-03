@@ -20,3 +20,24 @@ pre code {
     width: $code_block_width;
     border-radius: 4px;
 }
+
+.header-current-user-icon {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.a-user-icon {
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.index-title-items {
+    vertical-align: middle;
+}
+.index-title-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+    margin-right: auto;
+}
