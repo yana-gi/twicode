@@ -2,16 +2,6 @@ section.hero
   .title.my-3
     |  一覧
 
-/ 確認用
-= link_to 'ログイン', "/auth/twitter", method: :post, class: "login"
-
-- if flash[:notice]
-  p
-    = flash[:notice]
-- if session[:nickname]
-  p
-    = "#{session[:nickname]}さん、こんにちは"
-
 .div
   - @code.each do |code|
     hr
