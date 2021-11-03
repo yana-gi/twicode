@@ -29,7 +29,7 @@ class CodeController < ApplicationController
 
   def destroy
     @code.destroy
-    redirect_to code_index_url, notice: 'Code was successfully destroyed.'
+    redirect_to user_code_index_path(current_user.id), notice: 'Code was successfully destroyed.'
   end
 
   private
