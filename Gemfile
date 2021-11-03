@@ -17,6 +17,7 @@ gem 'webpacker', '~> 5.0'
 # not default
 gem 'meta-tags'
 gem 'slim-rails'
+gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 
 group :production do
