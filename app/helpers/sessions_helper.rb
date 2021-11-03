@@ -6,9 +6,7 @@ module SessionsHelper
   end
 
   def current_user
-    if session[:uid]
-      @current_user ||= User.find_by(uid: session[:uid])
-    end
+    @current_user ||= User.find_by(uid: session[:uid]) if session[:uid]
   end
 
   def logged_in?
@@ -17,6 +15,6 @@ module SessionsHelper
 
   def log_out
     session.delete(:uid)
-    @current_user = nil
+    @current_user = nil  # rubocop:disable Rails/HelperInstanceVariable
   end
 end
