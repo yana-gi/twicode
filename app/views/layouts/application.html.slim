@@ -16,7 +16,16 @@ html
       .navbar-end
         = link_to '新規作成', new_code_path, class: 'navbar-item'
         = link_to '投稿一覧', code_index_path, class: 'navbar-item'
-        = link_to 'ログイン', code_index_path, class: 'navbar-item'
+        - if logged_in?
+          = link_to 'ログアウト', logout_path, class: 'navbar-item'
+        - else
+          = link_to 'ログイン', '/auth/twitter', method: :post, class: 'navbar-item'
   body
     .container
+      - if flash[:notice]
+        p class="notification is-primary is-light"
+          = flash[:notice]
+      - if logged_in?
+        p
+          = "#{current_user.twitter_name}でログインしています"
       = yield
