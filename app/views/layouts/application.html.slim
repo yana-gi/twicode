@@ -17,7 +17,12 @@ html
         - if logged_in?
           = link_to '新規作成', new_code_path, class: 'navbar-item'
           = link_to '投稿一覧', user_code_index_path(current_user.id), class: 'navbar-item'
-          = link_to 'ログアウト', logout_path, class: 'navbar-item'
+          .navbar-item.has-dropdown.is-hoverable
+            .navbar-link
+              .header-current-user-icon
+                = image_tag current_user.twitter_icon, class: 'a-user-icon'
+            .navbar-dropdown.is-right
+              = link_to 'ログアウト', logout_path, class: 'navbar-item'
         - else
           = link_to 'ログイン', '/auth/twitter', method: :post, class: 'navbar-item'
   body
@@ -25,7 +30,4 @@ html
       - if flash[:notice]
         p class="notification is-primary is-light"
           = flash[:notice]
-      - if logged_in?
-        p
-          = "#{current_user.twitter_name}でログインしています"
       = yield
