@@ -3,39 +3,62 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
+  before do
+    OmniAuth.config.mock_auth[:twitter] = nil
+  end
+
   describe 'ログイン処理' do
-    describe 'ログイン状態' do
-      context 'ログインしていない場合' do
-        it 'ヘッダーにログインボタンが表示されること'
-        it 'ヘッダーのログインボタンを押すとTwitterのログイン画面に遷移されること'
-        it '新規登録画面に遷移するとログイン画面に遷移されること'
-      end
-      context 'ログインしている場合' do
-        it 'ヘッダーにログアウトボタンが表示されること'
+    context 'ログインボタンを押してTwitter認証を許可した時' do
+      it 'ログインができる' do
+        Rails.application.env_config['omniauth.auth'] = twitter_mock
+        visit root_path
+        find_link('ログイン', href: '/auth/twitter').click
+        expect(page).to have_content('ログインしました')
       end
     end
-
-    describe 'Twitter認証' do
-      context '成功時' do
-        it '新規投稿画面に遷移すること'
-        it '成功した旨のメッセージが表示されること'
-        it 'user_idが取得できていること'
-      end
-      context '失敗時' do
-        it 'トップ画面に戻ること'
-        it '失敗した旨のメッセージが表示されること'
-      end
-      context '中断時' do
-        it 'トップ画面に戻ること'
-        it '中断した旨のメッセージが表示されること'
+    context 'ログインボタンを押してTwitter認証をキャンセルした時' do
+      it 'ログインができない' do
+        Rails.application.env_config['omniauth.auth'] = twitter_invalid_mock
+        visit root_path
+        find_link('ログイン', href: '/auth/twitter').click
+        expect(page).to have_content('キャンセルしました')
       end
     end
   end
 
   describe 'ログアウト処理' do
-    describe 'ログアウトができること' do
-      it 'ログアウトしましたと表示されること'
-      it 'ヘッダーにログインボタンが表示されること'
+    before do
+      Rails.application.env_config['omniauth.auth'] = twitter_mock
+      visit root_path
+      find_link('ログイン', href: '/auth/twitter').click
+    end
+    it 'ログアウトができること' do
+      expect(page).to have_content('ログアウト')
+    end
+  end
+
+  describe 'ログイン状態による画面表示の確認' do
+    context 'ログインしていない場合' do
+      before { visit root_path }
+      it 'ヘッダーに新規作成・投稿一覧ボタンが表示されないこと' do
+        within('nav') do
+          expect(page).to_not have_content('新規作成')
+          expect(page).to_not have_content('投稿一覧')
+        end
+      end
+    end
+    context 'ログインしている場合' do
+      before do
+        Rails.application.env_config['omniauth.auth'] = twitter_mock
+        visit root_path
+        find_link('ログイン', href: '/auth/twitter').click
+      end
+      it 'ヘッダーに新規作成・投稿一覧ボタンが表示されないこと' do
+        within('nav') do
+          expect(page).to have_content('新規作成')
+          expect(page).to have_content('投稿一覧')
+        end
+      end
     end
   end
 end
