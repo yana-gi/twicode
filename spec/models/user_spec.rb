@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'Userモデルのレコード件数が変化していないこと' do
-        expect { User.find_or_create_from_auth_hash(auth_hash) }.not_to change(User.count)
+        expect { User.find_or_create_from_auth_hash(auth_hash) }.not_to change(User, :count)
       end
     end
   end
