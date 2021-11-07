@@ -2,6 +2,7 @@
 
 class CodeController < ApplicationController
   before_action :set_code, only: %i[show destroy]
+  skip_before_action :login_required, only: %i[show index]
 
   def index
     @user = User.find(params[:user_id] || current_user.id)
