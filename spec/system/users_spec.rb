@@ -39,11 +39,17 @@ RSpec.describe 'Users', type: :system do
 
   describe 'ログイン状態による画面表示の確認' do
     context 'ログインしていない場合' do
-      before { visit root_path }
       it 'ヘッダーに新規作成・投稿一覧ボタンが表示されないこと' do
+        visit root_path
         within('nav') do
           expect(page).to_not have_content('新規作成')
           expect(page).to_not have_content('投稿一覧')
+        end
+      end
+      it 'code新規作成画面に遷移できず、代わりにwelcome画面に遷移すること' do
+        visit new_code_path
+        within('.title') do
+          expect(page).to have_content('ついこーど')
         end
       end
     end
@@ -57,6 +63,12 @@ RSpec.describe 'Users', type: :system do
         within('nav') do
           expect(page).to have_content('新規作成')
           expect(page).to have_content('投稿一覧')
+        end
+      end
+      it 'code新規作成画面に遷移できること' do
+        visit new_code_path
+        within('.title') do
+          expect(page).to have_content('新規作成')
         end
       end
     end
