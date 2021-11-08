@@ -9,6 +9,7 @@ document.addEventListener("turbolinks:load", () => {
   const hiddenImageDataUrl = document.querySelector("#code_image_data_url");
 
   if (precode) {
+    precode.className = language.innerHTML;
     hljs.highlightAll();
   }
   if (form) {
