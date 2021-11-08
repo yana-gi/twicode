@@ -6,13 +6,17 @@ section.hero
 p#notice = notice
 
 p
-  strong Body:
+  strong 言語:
+  p
+    = @code.language
+p
+  strong コード:
   pre
     code
       = @code.body
 - if @code.image.attached?
   p
-    strong image:
+    strong イメージ:
     p
       = image_tag @code.image
 

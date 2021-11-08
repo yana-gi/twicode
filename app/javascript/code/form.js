@@ -12,7 +12,7 @@ document.addEventListener("turbolinks:load", () => {
     hljs.highlightAll();
   }
   if (form) {
-    precode.className = "ruby hljs language-ruby";
+    precode.className = "hljs language-PlainText";
 
     textarea.addEventListener("input", highlight);
     language.addEventListener("change", highlight);
