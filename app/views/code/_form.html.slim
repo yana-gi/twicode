@@ -1,8 +1,8 @@
 .code-block
   = form_with scope: :code, url: code_index_path do |f|
     - if @code.errors.any?
-      #error_explanation
-        h2 = "#{pluralize(@code.errors.count, 'error')} prohibited this code from being saved:"
+      .notification.is-warning.is-light
+        h2 = "エラーが発生しました"
         ul
           - @code.errors.full_messages.each do |message|
             li = message
@@ -25,4 +25,4 @@
         = f.hidden_field :image_data_url, value: ''
     .field
       .control
-      .actions = f.submit class: "button is-light'"
+      .actions = f.submit '投稿する', class: "button is-light'"

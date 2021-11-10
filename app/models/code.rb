@@ -4,6 +4,8 @@ class Code < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
+  validates :body, presence: true
+
   enum language: {
     'PlainText': 0,
     'Bash': 1,
