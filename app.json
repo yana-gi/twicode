@@ -4,8 +4,8 @@
     "postdeploy": "bin/setup"
   },
   "env":{
-    "RACK_ENV": "development",
-    "RAILS_ENV": "development"
+    "RACK_ENV": "review",
+    "RAILS_ENV": "review"
   },
   "addons":[
     "heroku-postgresql"
