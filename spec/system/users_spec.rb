@@ -4,21 +4,20 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   before do
-    OmniAuth.config.mock_auth[:twitter] = nil
+    twitter_mock
   end
 
   describe 'ログイン処理' do
-    context 'ログインボタンを押してTwitter認証を許可した時' do
+    context '認証が成功した時' do
       it 'ログインができる' do
-        Rails.application.env_config['omniauth.auth'] = twitter_mock
         visit root_path
         find_link('ログイン', href: '/auth/twitter').click
         expect(page).to have_content('ログインしました')
       end
     end
-    context 'ログインボタンを押してTwitter認証をキャンセルした時' do
+    context '認証が失敗した時' do
+      before { twitter_invalid_mock }
       it 'ログインができない' do
-        Rails.application.env_config['omniauth.auth'] = twitter_invalid_mock
         visit root_path
         find_link('ログイン', href: '/auth/twitter').click
         expect(page).to have_content('キャンセルしました')
@@ -28,7 +27,6 @@ RSpec.describe 'Users', type: :system do
 
   describe 'ログアウト処理' do
     before do
-      Rails.application.env_config['omniauth.auth'] = twitter_mock
       visit root_path
       find_link('ログイン', href: '/auth/twitter').click
     end
@@ -55,7 +53,6 @@ RSpec.describe 'Users', type: :system do
     end
     context 'ログインしている場合' do
       before do
-        Rails.application.env_config['omniauth.auth'] = twitter_mock
         visit root_path
         find_link('ログイン', href: '/auth/twitter').click
       end
