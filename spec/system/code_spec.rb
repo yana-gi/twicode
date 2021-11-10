@@ -29,7 +29,15 @@ RSpec.describe 'Code', type: :system do
   end
 
   describe '詳細画面' do
-    it 'テキストコードが表示されること'
+    before do
+      visit new_code_path
+      select 'Ruby', from: 'parse_language'
+      fill_in 'code_body', with: 'test'
+      click_on '投稿する'
+    end
+    it 'テキストコードが表示されること' do
+      expect(page).to have_content 'test'
+    end
     it '画像が表示されること'
 
     describe 'Tweetボタン' do
