@@ -7,7 +7,9 @@ class CodeController < ApplicationController
     @code = Code.all
   end
 
-  def show; end
+  def show
+    @tweet_url = tweet_url(code: @code)
+  end
 
   def new
     @code = Code.new
@@ -41,5 +43,12 @@ class CodeController < ApplicationController
 
   def image_data_url
     params.require(:code).permit(:image_data_url)[:image_data_url]
+  end
+
+  def tweet_url(code:)
+    tweet_param = URI.encode_www_form(text: "\n",
+                                      url: code_url(practice_id: code.id),
+                                      hashtags: 'ついこーど')
+    "https://twitter.com/intent/tweet?#{tweet_param}"
   end
 end

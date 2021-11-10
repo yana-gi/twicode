@@ -21,6 +21,9 @@ p
       = image_tag @code.image
 
 div
+  = link_to @tweet_url, class: 'button a-button is-info', target: 'blank' do
+    | Tweetする
+div
   = link_to 'Destroy', @code, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-light'
 div
   = link_to 'Back', code_index_path, class: 'button is-light'
