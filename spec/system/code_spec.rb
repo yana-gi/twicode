@@ -18,8 +18,13 @@ RSpec.describe 'Code', type: :system do
       end
     end
     context 'CodeのBodyが空文字ではない場合' do
-      it 'Codeの保存に成功すること'
-      it '詳細画面に遷移すること'
+      it 'Codeの保存に成功し、詳細画面に遷移すること' do
+        select 'Ruby', from: 'parse_language'
+        fill_in 'code_body', with: 'test'
+        click_on '投稿する'
+        expect(page).to have_content '詳細画面'
+        expect(page).to have_content 'コードを投稿しました'
+      end
     end
   end
 

@@ -22,7 +22,7 @@ class CodeController < ApplicationController
     @code.attach_blob(image_data_url)
 
     if @code.save
-      redirect_to @code, notice: 'Code was successfully created.'
+      redirect_to @code, notice: 'コードを投稿しました'
     else
       render :new, status: :unprocessable_entity
     end
