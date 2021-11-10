@@ -1,12 +1,12 @@
 ---
 ja:
   activerecord:
-    errors:
-      messages:
-        record_invalid: 'バリデーションに失敗しました: %{errors}'
-        restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
+    models:
+      code: コード
+    attributes:
+      code:
+        body: コード
+        language: 言語
   date:
     abbr_day_names:
     - 日
