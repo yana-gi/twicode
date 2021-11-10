@@ -41,6 +41,7 @@ RSpec.describe 'Code', type: :system do
     it '画像が表示されること'
 
     it 'Tweetボタン'
+
     describe '削除ボタン' do
       context '作成したユーザーの場合' do
         it 'Codeの削除ができること' do
@@ -50,11 +51,15 @@ RSpec.describe 'Code', type: :system do
         end
       end
       context '作成したユーザー以外の場合' do
+        before { click_on 'ログアウト' }
         it 'Codeの削除ボタンが表示されないこと' do
-          expect(page).to_not have_content 'コードを削除しました'
+          code = Code.last
+          visit code_path(code)
+          expect(page).to_not have_content '削除'
         end
       end
     end
+
     describe '戻るボタン' do
       it 'コードを作成したユーザーの一覧画面に遷移すること'
     end
