@@ -9,9 +9,13 @@ RSpec.describe 'Code', type: :system do
     find_link('ログイン', href: '/auth/twitter').click
   end
   describe '新規作成' do
+    before { visit new_code_path }
+
     context 'CodeのBodyが空文字の場合' do
-      it '保存ができないこと'
-      it 'エラーメッセージが表示されること'
+      it '保存ができず、エラーメッセージが表示されること' do
+        click_on '投稿する'
+        expect(page).to have_content 'コードを入力してください'
+      end
     end
     context 'CodeのBodyが空文字ではない場合' do
       it 'Codeの保存に成功すること'
