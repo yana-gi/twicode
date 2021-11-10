@@ -8,7 +8,7 @@ class CodeController < ApplicationController
   end
 
   def show
-    @tweet_url = tweet_url(code: @code)
+    @tweet_url = tweet_url
   end
 
   def new
