@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Code', type: :system do
+  before do
+    twitter_mock
+    visit root_path
+    find_link('ログイン', href: '/auth/twitter').click
+  end
   describe '新規作成' do
     context 'CodeのBodyが空文字の場合' do
       it '保存ができないこと'
