@@ -40,18 +40,23 @@ RSpec.describe 'Code', type: :system do
     end
     it '画像が表示されること'
 
-    describe 'Tweetボタン' do
-      it 'TwitterのTweet画面に遷移できること'
-    end
+    it 'Tweetボタン'
     describe '削除ボタン' do
       context '作成したユーザーの場合' do
         it 'Codeの削除ができること' do
+          click_on '削除'
+          page.accept_confirm
+          expect(page).to have_content 'コードを削除しました'
         end
       end
       context '作成したユーザー以外の場合' do
         it 'Codeの削除ボタンが表示されないこと' do
+          expect(page).to_not have_content 'コードを削除しました'
         end
       end
+    end
+    describe '戻るボタン' do
+      it 'コードを作成したユーザーの一覧画面に遷移すること'
     end
   end
 

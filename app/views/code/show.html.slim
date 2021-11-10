@@ -23,6 +23,6 @@ div
   = link_to @tweet_url, class: 'button a-button is-info', target: 'blank' do
     | Tweetする
 div
-  = link_to 'Destroy', @code, data: { confirm: 'Are you sure?' }, method: :delete, class: 'button is-light'
+  = link_to '削除', @code, data: { confirm: '削除しますか?' }, method: :delete, class: 'button is-light'
 div
   = link_to 'Back', user_code_index_path(@code.user.id), class: 'button is-light'

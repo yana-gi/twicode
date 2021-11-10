@@ -30,7 +30,7 @@ class CodeController < ApplicationController
 
   def destroy
     @code.destroy
-    redirect_to user_code_index_path(current_user.id), notice: 'Code was successfully destroyed.'
+    redirect_to user_code_index_path(current_user.id), notice: 'コードを削除しました'
   end
 
   private
