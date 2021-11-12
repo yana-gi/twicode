@@ -35,14 +35,16 @@ RSpec.describe 'Code', type: :system do
       fill_in 'code_body', with: 'test'
       click_on '投稿する'
     end
+
     it 'テキストコードが表示されること' do
       expect(page).to have_content 'test'
     end
     it '画像が表示されること' do
       expect(page).to have_css '#code-image'
     end
-
-    it 'Tweetボタン'
+    it 'Tweetボタンが表示されること' do
+      expect(page).to have_link 'Tweetする'
+    end
 
     describe '削除ボタン' do
       context '作成したユーザーの場合' do
