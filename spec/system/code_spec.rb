@@ -38,7 +38,9 @@ RSpec.describe 'Code', type: :system do
     it 'テキストコードが表示されること' do
       expect(page).to have_content 'test'
     end
-    it '画像が表示されること'
+    it '画像が表示されること' do
+      expect(page).to have_css '#code-image'
+    end
 
     it 'Tweetボタン'
 

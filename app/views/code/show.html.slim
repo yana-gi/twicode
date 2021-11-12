@@ -17,7 +17,7 @@ p
   p
     strong イメージ:
     p
-      = image_tag @code.image
+      = image_tag @code.image, id: 'code-image'
 
 div
   = link_to @tweet_url, class: 'button a-button is-info', target: 'blank' do
