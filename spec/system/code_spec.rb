@@ -65,8 +65,11 @@ RSpec.describe 'Code', type: :system do
       end
     end
 
-    describe '戻るボタン' do
-      it 'コードを作成したユーザーの一覧画面に遷移すること'
+    describe '一覧へ遷移するボタン' do
+      it 'コードを作成したユーザーの一覧画面に遷移すること' do
+        find('.user-code-index-link').click
+        expect(page).to have_content '投稿一覧'
+      end
     end
   end
 
