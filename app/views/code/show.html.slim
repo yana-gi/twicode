@@ -1,9 +1,17 @@
 - @page_image = polymorphic_url(@code.image)
 
 section.hero
+  .title-items
+    .title-item
+      = image_tag @code.user.twitter_icon, class: 'a-user-icon'
+    .title.my-3.title-item
+      = "#{@code.user.twitter_name}の投稿"
   .title.my-3
     |  詳細画面
 
+p
+  strong 投稿日:
+  = l @code.created_at, format: :long
 p
   strong 言語:
   p#parse_language
@@ -19,11 +27,9 @@ p
     p
       = image_tag @code.image, id: 'code-image'
 
-div
+.my-3
   = link_to @tweet_url, class: 'button a-button is-info', target: 'blank' do
     | Tweetする
-div
+.my-3
   - if  current_user == @code.user
     = link_to '削除', @code, data: { confirm: '削除しますか?' }, method: :delete, class: 'button is-light'
-div
-  = link_to 'Back', user_code_index_path(@code.user.id), class: 'button is-light'
