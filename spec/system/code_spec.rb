@@ -54,17 +54,19 @@ RSpec.describe 'Code', type: :system do
           expect(page).to have_content 'コードを削除しました'
         end
       end
-      # 高頻度でテストが落ちるため、一旦コメントアウト
       context '作成したユーザー以外の場合' do
-        # before { click_on 'ログアウト' }
+        before do
+          sleep 1
+          click_on 'ログアウト'
+          sleep 1
+        end
         it 'Codeの削除ボタンが表示されないこと' do
-          # code = Code.last
-          # visit code_path(code)
-          # expect(page).to_not have_content '削除'
+          code = Code.last
+          visit code_path(code)
+          expect(page).to_not have_content '削除'
         end
       end
     end
-
 
     describe '一覧へ遷移するボタン' do
       it 'コードを作成したユーザーの一覧画面に遷移すること' do
