@@ -29,9 +29,10 @@ RSpec.describe 'Users', type: :system do
     before do
       visit root_path
       find_link('ログイン', href: '/auth/twitter').click
+      find_link('ログアウト', href: '/logout').click
     end
     it 'ログアウトができること' do
-      expect(page).to have_content('ログアウト')
+      expect(page).to have_content('ログアウトしました')
     end
   end
 
