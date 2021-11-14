@@ -65,6 +65,7 @@ RSpec.describe 'Code', type: :system do
       end
     end
 
+
     describe '一覧へ遷移するボタン' do
       it 'コードを作成したユーザーの一覧画面に遷移すること' do
         find('.user-code-index-link').click
@@ -74,8 +75,22 @@ RSpec.describe 'Code', type: :system do
   end
 
   describe '一覧画面' do
-    it 'ユーザー名が表示されること'
+    before do
+      visit new_code_path
+      select 'Ruby', from: 'parse_language'
+      fill_in 'code_body', with: 'test'
+      click_on '投稿する'
+      sleep 1
+      click_on '投稿一覧'
+    end
+
+    it 'ユーザー名が表示されること' do
+      expect(page).to have_content 'Mock User Nameの投稿一覧'
+    end
+    it '画像をクリックすると詳細画面に遷移すること' do
+      find('.code-image').click
+      expect(page).to have_content '詳細画面'
+    end
     it 'ユーザーが作成したCodeのみが表示されること'
-    it '画像をクリックすると詳細画面に遷移すること'
   end
 end
