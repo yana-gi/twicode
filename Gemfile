@@ -16,9 +16,9 @@ gem 'webpacker', '~> 5.0'
 
 # not default
 gem 'meta-tags'
-gem 'slim-rails'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
+gem 'slim-rails'
 
 group :production do
   gem 'aws-sdk-s3', require: false
@@ -53,4 +53,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
