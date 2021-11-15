@@ -32,6 +32,11 @@ RSpec.describe 'Code', type: :system do
         expect(page).to have_content '詳細画面'
         expect(page).to have_content 'コードを投稿しました'
       end
+
+      it '最後に選択した言語が表示されていること' do
+        visit new_code_path
+        expect(page).to have_selector '#parse_language', text: 'Ruby'
+      end
     end
   end
 
