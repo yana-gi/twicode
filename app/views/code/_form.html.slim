@@ -10,7 +10,7 @@
       .label 言語
       .control
         .select
-          = f.select :language, Code.languages.keys.to_a, {}, id: 'parse_language'
+          = f.select :language, options_for_select(Code.languages.keys.to_a, current_user.last_selected_language), {}, id: 'parse_language'
     .field
       .label コード
       .control

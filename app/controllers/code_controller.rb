@@ -21,7 +21,10 @@ class CodeController < ApplicationController
     @code = current_user.code.new(code_params)
     @code.attach_blob(image_data_url)
 
-    if @code.save
+    @user = @code.user
+    @user.last_selected_language = @code.language
+
+    if @code.save && @user.save
       redirect_to @code, notice: 'コードを投稿しました'
     else
       render :new, status: :unprocessable_entity

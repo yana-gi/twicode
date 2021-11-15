@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   has_many :code, dependent: :destroy
 
+  enum last_selected_language: Code.languages
+
   def self.find_or_create_from_auth_hash(auth_hash)
     uid = auth_hash[:uid]
     twitter_id = auth_hash[:info][:nickname]
