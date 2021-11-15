@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module OmniauthMocks
-  def twitter_mock
+  def mock_twitter!
     OmniAuth.config.mock_auth[:twitter] =
       OmniAuth::AuthHash.new({
                                'provider' => 'twitter',
@@ -14,7 +14,7 @@ module OmniauthMocks
                              })
   end
 
-  def twitter_invalid_mock
+  def mock_twitter_failure!
     OmniAuth.config.mock_auth[:twitter] = :invalid_credentials
   end
 end

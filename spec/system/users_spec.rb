@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   before do
-    twitter_mock
+    mock_twitter!
   end
 
   describe 'ログイン処理' do
@@ -16,7 +16,7 @@ RSpec.describe 'Users', type: :system do
       end
     end
     context '認証が失敗した時' do
-      before { twitter_invalid_mock }
+      before { mock_twitter_failure! }
       it 'ログインができない' do
         visit root_path
         find_link('ログイン', href: '/auth/twitter').click
