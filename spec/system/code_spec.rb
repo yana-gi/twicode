@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Code', type: :system do
   before do
-    twitter_mock
+    mock_twitter!
     visit root_path
     find_link('ログイン', href: '/auth/twitter').click
   end
