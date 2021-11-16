@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :user do
-    uid { 'MyString' }
-    twitter_id { 'MyString' }
-    twitter_name { 'MyString' }
-    twitter_icon { 'MyString' }
+    uid { '123456' }
+    twitter_id { 'Mock User' }
+    twitter_name { 'Mock User Name' }
+    twitter_icon { 'http://mock_image_url.com' }
   end
 end
