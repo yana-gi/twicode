@@ -2,7 +2,7 @@
   = form_with scope: :code, url: code_index_path do |f|
     - if @code.errors.any?
       .notification.is-warning.is-light
-        h2 = "エラーが発生しました"
+        h2 = 'エラーが発生しました'
         ul
           - @code.errors.full_messages.each do |message|
             li = message
