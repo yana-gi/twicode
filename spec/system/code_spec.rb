@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Code', type: :system do
+  let!(:login_user) { FactoryBot.create(:user, uid: '123456') }
+
   before do
     mock_twitter!
     visit root_path
@@ -30,10 +32,9 @@ RSpec.describe 'Code', type: :system do
 
   describe '詳細画面' do
     before do
-      visit new_code_path
-      select 'Ruby', from: 'parse_language'
-      fill_in 'code_body', with: 'test'
-      click_on '投稿する'
+      code = FactoryBot.create(:code, user: login_user)
+      visit code_path(code)
+      expect(page).to have_content '詳細画面'
     end
 
     it 'テキストコードが表示されること' do
@@ -78,11 +79,7 @@ RSpec.describe 'Code', type: :system do
 
   describe '一覧画面' do
     before do
-      visit new_code_path
-      select 'Ruby', from: 'parse_language'
-      fill_in 'code_body', with: 'test'
-      click_on '投稿する'
-      sleep 1
+      FactoryBot.create(:code, user: login_user)
       click_on '投稿一覧'
     end
 
