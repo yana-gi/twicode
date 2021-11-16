@@ -57,9 +57,8 @@ RSpec.describe 'Code', type: :system do
       end
       context '作成したユーザー以外の場合' do
         before do
-          sleep 1
           click_on 'ログアウト'
-          sleep 1
+          expect(page).to have_content 'ログアウトしました'
         end
         it 'Codeの削除ボタンが表示されないこと' do
           code = Code.last
@@ -90,6 +89,7 @@ RSpec.describe 'Code', type: :system do
       find('.code-image').click
       expect(page).to have_content '詳細画面'
     end
+    # 現時点で画面上の情報から判別できないため保留
     it 'ユーザーが作成したCodeのみが表示されること'
   end
 end
