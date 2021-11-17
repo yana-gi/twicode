@@ -10,8 +10,8 @@ html
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    .container
+  .container
+    body
       header
         nav.navbar
           .navbar-brand
@@ -28,16 +28,16 @@ html
                   = link_to 'ログアウト', logout_path, class: 'navbar-item'
             - else
               = link_to 'ログイン', '/auth/twitter', method: :post, class: 'navbar-item'
-      main.p-4
-        - if flash[:notice]
-          p class="notification is-primary is-light"
-            = flash[:notice]
-        = yield
-      footer
-        .content.has-text-centered
-          .social-links
-            = link_to 'https://github.com/yana-gi/twicode', class: 'social-link'
-            i.fab.fa-github-alt
-          span
-            = Time.current.year
-            | ©yana-gi
+        main.p-4
+          - if flash[:notice]
+            p class="notification is-primary is-light"
+              = flash[:notice]
+          = yield
+        footer
+          .content.has-text-centered
+            .social-links
+              = link_to 'https://github.com/yana-gi/twicode', class: 'social-link'
+              i.fab.fa-github-alt
+            span
+              = Time.current.year
+              | ©yana-gi
