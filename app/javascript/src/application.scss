@@ -77,12 +77,12 @@ pre code {
     background-color: white;
 }
 
-.title-items {
+.page-header-items {
     vertical-align: middle;
+    display: inline-block;
 }
-.title-item {
+.page-header-item {
     display: inline-block;
     vertical-align: middle;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0.25rem;
 }
