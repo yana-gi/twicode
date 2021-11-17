@@ -2,6 +2,7 @@
 
 class Code < ApplicationRecord
   belongs_to :user
+  belongs_to :language
   has_one_attached :image
 
   before_validation :set_default_title
@@ -11,35 +12,9 @@ class Code < ApplicationRecord
 
   paginates_per 5
 
-  enum language: {
-    'PlainText': 0,
-    'Bash': 1,
-    'C': 2,
-    'C#': 3,
-    'C++': 4,
-    'CSS': 5,
-    'Diff': 6,
-    'Go': 7,
-    'HTML': 8,
-    'XML': 9,
-    'JSON': 10,
-    'Java': 11,
-    'JavaScript': 12,
-    'Kotlin': 13,
-    'Markdown': 14,
-    'PHP': 15,
-    'Perl': 16,
-    'Python': 17,
-    'R': 18,
-    'Ruby': 19,
-    'Rust': 20,
-    'SCSS': 21,
-    'SQL': 22,
-    'Shell': 23,
-    'Swift': 24,
-    'TypeScript': 25,
-    'YAML': 26
-  }
+  def self.language_list
+    Language.name_list
+  end
 
   def self.default_title
     "Code of #{(Time.zone.today).strftime('%Y/%m/%d')}"
