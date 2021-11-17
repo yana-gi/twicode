@@ -18,8 +18,8 @@ html
             = link_to '</ TwiCode >', root_path, class: 'navbar-item header__title'
           .navbar-end
             - if logged_in?
-              = link_to '新規作成', new_code_path, class: 'navbar-item'
-              = link_to '投稿一覧', user_code_index_path(current_user.id), class: 'navbar-item'
+              = link_to '新規作成', new_code_path, class: 'navbar-item has-text-weight-bold'
+              = link_to '投稿一覧', user_code_index_path(current_user.id), class: 'navbar-item has-text-weight-bold'
               .navbar-item.has-dropdown.is-hoverable
                 .navbar-link
                   .header-current-user-icon
