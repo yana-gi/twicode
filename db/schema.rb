@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(version: 2021_11_21_052448) do
     t.index ["user_id"], name: "index_code_on_user_id"
   end
 
+  create_table "languages", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_languages_on_name", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "uid", null: false
     t.string "twitter_id"
