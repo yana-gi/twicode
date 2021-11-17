@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | Twicode
+      | TwiCode
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/nord.min.css"
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = display_meta_tags default_meta_tags
@@ -15,7 +15,7 @@ html
       header
         nav.navbar
           .navbar-brand
-            = link_to 'ついこーど', root_path, class: 'navbar-item'
+            = link_to '</ TwiCode >', root_path, class: 'navbar-item header__title'
           .navbar-end
             - if logged_in?
               = link_to '新規作成', new_code_path, class: 'navbar-item'
