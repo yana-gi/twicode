@@ -1,18 +1,17 @@
 - @page_image = polymorphic_url(@code.image)
 
-section.hero
-  .title-items
-    = link_to user_code_index_path(@code.user.id), class: 'user-code-index-link' do
-      .title-item
-        = image_tag @code.user.twitter_icon, class: 'a-user-icon'
-      .title.my-3.title-item
-        = "#{@code.user.twitter_name}の投稿"
-  .title.my-3
-    |  詳細画面
+.page-header
+  .page-header-items
+    .page-header-item
+      = image_tag @code.user.twitter_icon, class: 'a-user-icon'
+    .page-header-item
+      div
+        = link_to user_code_index_path(@code.user.id), class: 'user-code-index-link has-text-weight-medium is-size-5' do
+          = "#{@code.user.twitter_name}"
+      .has-text-grey
+        div
+          = "投稿日: #{l @code.created_at, format: :long}"
 
-p
-  strong 投稿日:
-  = l @code.created_at, format: :long
 p
   strong 言語:
   p#parse_language
