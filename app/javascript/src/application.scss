@@ -54,12 +54,7 @@ main {
     }
 }
 
-.code-block textarea {
-    max-width: initial;
-    min-width: initial;
-    height: $code_block_height;
-    width: $code_block_width;
-}
+
 pre {
     background-color: initial;
     font-size: initial;
@@ -70,10 +65,16 @@ pre code {
     border-radius: 4px;
 }
 
-form pre code {
-    height: $code_block_height;
-    width: $code_block_width;
+.new-code {
+    .code-block textarea {
+        height: 15rem;
+    }
+    form pre code {
+        height: $code_block_height;
+        width: $code_block_width;
+    }
 }
+
 
 .header-current-user-icon {
     display: block;
