@@ -36,7 +36,29 @@ main {
     height: 100%;
 }
 
+.a-user-icon {
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: white;
+}
+
+pre {
+    background-color: initial;
+    font-size: initial;
+    padding:initial;
+}
+pre code {
+    overflow: hidden;
+    border-radius: 4px;
+}
+
 .header{
+    .header-current-user-icon {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     &__title {
         font-family: $font-family-logo;
         font-size: 29px;
@@ -54,17 +76,6 @@ main {
     }
 }
 
-
-pre {
-    background-color: initial;
-    font-size: initial;
-    padding:initial;
-}
-pre code {
-    overflow: hidden;
-    border-radius: 4px;
-}
-
 .new-code {
     .code-block textarea {
         height: 15rem;
@@ -75,24 +86,18 @@ pre code {
     }
 }
 
+.show-code {
+    .page-header-items {
+        vertical-align: middle;
+        display: inline-block;
+    }
+    .page-header-item {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0.25rem;
+    }
+}
 
-.header-current-user-icon {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.a-user-icon {
-    object-fit: cover;
-    border-radius: 50%;
-    background-color: white;
-}
+.index-code {
 
-.page-header-items {
-    vertical-align: middle;
-    display: inline-block;
-}
-.page-header-item {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0.25rem;
 }
