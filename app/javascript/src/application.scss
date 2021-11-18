@@ -28,7 +28,6 @@ body {
 }
 
 main {
-    height: 100%;
     background-color: #ffffff;
 }
 
@@ -44,8 +43,15 @@ main {
     }
 }
 
-footer {
+.footer {
     background-color: #ffffff;
+    padding: 1rem;
+    .social-link {
+        & i {
+            padding: 0.75rem;
+            font-size: 1.5rem;
+        }
+    }
 }
 
 .code-block textarea {
