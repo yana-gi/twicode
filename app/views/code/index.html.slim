@@ -1,16 +1,15 @@
-section.hero
-  .title-items
-    .title-item
-      = image_tag @user.twitter_icon, class: 'a-user-icon'
-    .title.my-3.title-item
+.index-code
+  .title
+    h1.is-size-5
+      = image_tag @user.twitter_icon, class: 'a-user-icon m-1'
       = "#{@user.twitter_name}の投稿一覧"
 
-.div
-  - @code.each do |code|
-    hr
-    .div
-      div
-        = l code.created_at, format: :long
-      div
-        = link_to code, class: 'code-image' do
-          = image_tag(code.image)
+  .div
+    - @code.each do |code|
+      hr
+      .div
+        div
+          = l code.created_at, format: :long
+        div
+          = link_to code, class: 'code-image' do
+            = image_tag(code.image)

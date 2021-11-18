@@ -99,5 +99,10 @@ pre code {
 }
 
 .index-code {
-
+    .title {
+        img, h1{
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
 }
