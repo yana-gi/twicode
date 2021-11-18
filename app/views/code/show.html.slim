@@ -27,9 +27,12 @@ pre
 /     p
 /       = image_tag @code.image, id: 'code-image'
 
-.my-3
-  = link_to @tweet_url, class: 'button a-button is-info', target: 'blank' do
-    | Tweetする
-.my-3
+.my-3.has-text-centered
+  = link_to @tweet_url, class: 'button is-info', target: 'blank' do
+    span.icon
+      i.fab.fa-twitter
+    span
+      | Tweetする
+.my-3.has-text-right
   - if current_user == @code.user
     = link_to '削除', @code, data: { confirm: '削除しますか?' }, method: :delete, class: 'button is-light'
