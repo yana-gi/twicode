@@ -7,16 +7,16 @@
           - @code.errors.full_messages.each do |message|
             li = message
     .field
-      .label 言語
-      .control
+      .control.has-icons-left
         .select
           = f.select :language, Code.languages.keys.to_a, {}, id: 'parse_language'
+        .icon.is-small.is-left
+          i.fas.fa-code
     .field
-      .label コード
       .control
         = f.text_area :body, placeholder: 'input your code', class: 'textarea'
     .field
-      .label プレビュー
+      .label Twitter投稿時のイメージ
       .control
         pre
           code
