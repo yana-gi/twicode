@@ -4,14 +4,15 @@ html
     title
       | TwiCode
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/nord.min.css"
+    link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css"
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     = display_meta_tags default_meta_tags
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  .container
-    body
+  body
+    .container
       header
         nav.navbar
           .navbar-brand
@@ -28,16 +29,18 @@ html
                   = link_to 'ログアウト', logout_path, class: 'navbar-item'
             - else
               = link_to 'ログイン', '/auth/twitter', method: :post, class: 'navbar-item'
-        main.p-4
-          - if flash[:notice]
-            p class="notification is-primary is-light"
-              = flash[:notice]
-          = yield
-        footer
-          .content.has-text-centered
-            .social-links
-              = link_to 'https://github.com/yana-gi/twicode', class: 'social-link'
-              i.fab.fa-github-alt
-            span
-              = Time.current.year
-              | ©yana-gi
+      main.p-4
+        - if flash[:notice]
+          p class="notification is-primary is-light"
+            = flash[:notice]
+        = yield
+      footer.footer
+        .content.has-text-centered
+          .social-links
+            = link_to 'https://github.com/yana-gi/twicode', class: 'social-link' do
+              i.fab.fa-github
+            = link_to 'https://github.com/yana-gi/twicode', class: 'social-link' do
+              i.fab.fa-twitter
+          span
+            = Time.current.year
+            |  ©yana-gi
