@@ -61,9 +61,12 @@ pre {
 }
 pre code {
     overflow: hidden;
+    border-radius: 4px;
+}
+
+form pre code {
     height: $code_block_height;
     width: $code_block_width;
-    border-radius: 4px;
 }
 
 .header-current-user-icon {

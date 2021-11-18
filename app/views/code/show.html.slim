@@ -12,20 +12,20 @@
         div
           = "投稿日: #{l @code.created_at, format: :long}"
 
-p
-  strong 言語:
-  p#parse_language
+.my-3
+  span.icon.mr-2
+    i.fas.fa-code
+  span#parse_language
     = @code.language
-p
-  strong コード:
-  pre
-    code
-      = @code.body
-- if @code.image.attached?
-  p
-    strong イメージ:
-    p
-      = image_tag @code.image, id: 'code-image'
+
+pre
+  code
+    = @code.body
+/ - if @code.image.attached?
+/   p
+/     strong イメージ:
+/     p
+/       = image_tag @code.image, id: 'code-image'
 
 .my-3
   = link_to @tweet_url, class: 'button a-button is-info', target: 'blank' do
