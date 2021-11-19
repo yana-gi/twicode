@@ -10,10 +10,12 @@ body {
 }
 
 main {
+  min-height: 100%;
   background-color: #ffffff;
 }
 
 .container {
+  height: 100%;
   width: 700px;
   max-width: 100%;
 }
