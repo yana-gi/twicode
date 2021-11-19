@@ -27,10 +27,10 @@
   - if @code.image.attached?
     p
       strong イメージ:
-      p
+      p.code-image
         = image_tag @code.image, id: 'code-image'
 
-  .my-3.has-text-centered
+  .my-3
     = link_to @tweet_url, class: 'button is-info', target: 'blank' do
       span.icon
         i.fab.fa-twitter

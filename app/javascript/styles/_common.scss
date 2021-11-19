@@ -4,3 +4,10 @@
     margin-bottom: 0.75rem;
   }
 }
+
+.code-image, #code-image {
+  img {
+    width: 400px;
+    max-width: 100%;
+  }
+}
