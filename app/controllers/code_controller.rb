@@ -50,7 +50,7 @@ class CodeController < ApplicationController
   def tweet_url(code:)
     tweet_param = URI.encode_www_form(text: "\n",
                                       url: code_url(practice_id: code.id),
-                                      hashtags: 'ついこーど')
+                                      hashtags: 'TwiCode')
     "https://twitter.com/intent/tweet?#{tweet_param}"
   end
 end

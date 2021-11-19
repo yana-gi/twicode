@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
         uid: 'uid',
         info: {
           nickname: 'twicode',
-          name: 'ついこーど',
+          name: 'TwiCode',
           image: 'http://example.com/twicode.jpg'
         }
       }
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
         user = User.find_or_create_from_auth_hash(auth_hash)
         expect(user.uid).to eq 'uid'
         expect(user.twitter_id).to eq 'twicode'
-        expect(user.twitter_name).to eq 'ついこーど'
+        expect(user.twitter_name).to eq 'TwiCode'
         expect(user.twitter_icon).to eq 'http://example.com/twicode.jpg'
         expect(user).to be_persisted
       end

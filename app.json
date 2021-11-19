@@ -1,5 +1,5 @@
 {
-  "name":"twicode",
+  "name":"TwiCode",
   "scripts":{
     "postdeploy": "bin/setup"
   },

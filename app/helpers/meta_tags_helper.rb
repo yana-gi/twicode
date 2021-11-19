@@ -4,7 +4,7 @@ module MetaTagsHelper
   # rubocop:disable Metrics/MethodLength
   def default_meta_tags
     {
-      site: 'ついこーど',
+      site: 'TwiCode',
       reverse: true,
       charset: 'utf-8',
       description: '読みやすいコード画像をツイートできるサービス',
@@ -12,7 +12,7 @@ module MetaTagsHelper
       og: {
         title: :site,
         type: 'website',
-        site_name: 'ついこーど',
+        site_name: 'TwiCode',
         description: :description,
         # image: '',
         url: 'https://twicode.herokuapp.com/'
