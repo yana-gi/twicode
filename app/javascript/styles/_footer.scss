@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+.footer {
+  background-color: #ffffff;
+  padding: 1rem;
+  .social-link {
+    & i {
+      padding: 0.75rem;
+      font-size: 1.5rem;
+    }
+  }
+}
