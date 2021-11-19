@@ -49,7 +49,7 @@ RSpec.describe 'Users', type: :system do
       it 'code新規作成画面に遷移できず、代わりにwelcome画面に遷移すること' do
         visit new_code_path
         within('.title') do
-          expect(page).to have_content('ついこーど')
+          expect(page).to have_content('TwiCode')
         end
       end
     end

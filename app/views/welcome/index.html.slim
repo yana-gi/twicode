@@ -1,6 +1,6 @@
 .column.is-8.is-offset-2.has-text-centered
-  h1.title Twicode
-  p Twicode はTwitterでコードを気軽に共有できるサービスです。
+  h1.title TwiCode
+  p TwiCode はTwitterでコードを気軽に共有できるサービスです。
   p エディタのような読みやすいコード画像を作成します。
 
   blockquote.twitter-tweet
@@ -13,8 +13,8 @@
   script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"
 
   - if logged_in?
-    = link_to 'Twicode をつかってみる', new_code_path, class: 'button is-info p-5 my-5'
+    = link_to 'TwiCode をつかってみる', new_code_path, class: 'button is-info p-5 my-5'
   - else
     = link_to '/auth/twitter', method: :post, class: 'button is-info p-5 my-5' do
-      | Twicode をつかってみる
+      | TwiCode をつかってみる
     p 利用にはTwitterログインが必要です
