@@ -29,6 +29,7 @@ RSpec.describe 'Users', type: :system do
     before do
       visit root_path
       find_link('ログイン', href: '/auth/twitter').click
+      find('.is-hoverable').hover
       find_link('ログアウト', href: '/logout').click
     end
     it 'ログアウトができること' do
@@ -65,7 +66,7 @@ RSpec.describe 'Users', type: :system do
       end
       it 'code新規作成画面に遷移できること' do
         visit new_code_path
-        within('.title') do
+        within('h1') do
           expect(page).to have_content('新規作成')
         end
       end
