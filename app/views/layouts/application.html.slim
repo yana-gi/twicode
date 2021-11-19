@@ -29,7 +29,7 @@ html
                   = link_to 'ログアウト', logout_path, class: 'navbar-item'
             - else
               = link_to 'ログイン', '/auth/twitter', method: :post, class: 'navbar-item'
-      main.p-4
+      main.p-5
         - if flash[:notice]
           p class="notification is-primary is-light"
             = flash[:notice]
