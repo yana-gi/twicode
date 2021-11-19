@@ -10,7 +10,7 @@
       .page-header-item
         div
           = link_to user_code_index_path(@code.user.id), class: 'user-code-index-link has-text-weight-medium is-size-5' do
-            = "#{@code.user.twitter_name}"
+            = @code.user.twitter_name
         .has-text-grey
           div
             = "投稿日: #{l @code.created_at, format: :long}"
