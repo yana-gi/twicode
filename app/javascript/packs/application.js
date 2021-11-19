@@ -8,7 +8,8 @@ import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 
-require("../code/form");
+require("../src/code");
+require("../src/header");
 
 Rails.start();
 Turbolinks.start();
