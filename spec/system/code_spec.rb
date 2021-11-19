@@ -57,6 +57,7 @@ RSpec.describe 'Code', type: :system do
       end
       context '作成したユーザー以外の場合' do
         before do
+          find('.is-hoverable').hover
           click_on 'ログアウト'
           expect(page).to have_content 'ログアウトしました'
         end
