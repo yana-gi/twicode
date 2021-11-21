@@ -95,7 +95,8 @@ RSpec.describe 'Code', type: :system do
 
   describe '一覧画面' do
     before do
-      FactoryBot.create(:code, user: login_user)
+      FactoryBot.create(:code, title: 'Code of login_user', user: login_user)
+      FactoryBot.create(:code, title: 'Code of user_a', user: user_a)
       click_on '投稿一覧'
     end
 
@@ -106,7 +107,9 @@ RSpec.describe 'Code', type: :system do
       find('.code-image').click
       expect(page).to have_content '詳細画面'
     end
-    # 現時点で画面上の情報から判別できないため保留
-    it 'ユーザーが作成したCodeのみが表示されること'
+    it 'ユーザーが作成したCodeのみが表示されること' do
+      expect(page).to have_content 'Code of login_user'
+      expect(page).to_not have_content 'Code of user_a'
+    end
   end
 end
