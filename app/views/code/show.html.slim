@@ -14,32 +14,32 @@
         .has-text-grey
           div
             = "投稿日: #{l @code.created_at, format: :long}"
-    .my-3
-      span.icon.mr-2
-        i.fas.fa-pen
-      span
-        = @code.title
-  .my-3
+  .code-item
+    span.icon.mr-2
+      i.fas.fa-pen
+    span
+      = @code.title
+  .code-item
     span.icon.mr-2
       i.fas.fa-code
     span#parse_language
       = @code.language
-
-  pre
-    code
-      = @code.body
+  .code-item
+    pre
+      code
+        = @code.body
+  .code-item
   - if @code.image.attached?
     p
-      strong イメージ:
+      | Twitterカードのイメージ
       p.code-image
         = image_tag @code.image, id: 'code-image'
-
-  .my-3
+  .code-item
     = link_to @tweet_url, class: 'button is-info', target: 'blank' do
       span.icon
         i.fab.fa-twitter
       span
         | Tweetする
-  .my-3.has-text-right
+  .code-item.has-text-right
     - if current_user == @code.user
       = link_to '削除', @code, data: { confirm: '削除しますか?' }, method: :delete, class: 'button is-light'
