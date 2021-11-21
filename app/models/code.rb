@@ -40,7 +40,7 @@ class Code < ApplicationRecord
   }
 
   def self.default_title
-    "Code of #{(Date.today).strftime("%Y/%m/%d")}"
+    "Code of #{(Time.zone.today).strftime('%Y/%m/%d')}"
   end
 
   def attach_blob(image_data_url)
