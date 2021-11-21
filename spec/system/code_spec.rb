@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Code', type: :system do
   let!(:login_user) { FactoryBot.create(:user, uid: '123456') }
+  let!(:user_a) { FactoryBot.create(:user, uid: '111111') }
 
   before do
     mock_twitter!
@@ -23,9 +24,24 @@ RSpec.describe 'Code', type: :system do
       it 'Codeの保存に成功し、詳細画面に遷移すること' do
         select 'Ruby', from: 'parse_language'
         fill_in 'code_body', with: 'test'
+        fill_in 'code_title', with: 'Test title'
         click_on '投稿する'
         expect(page).to have_content '詳細画面'
         expect(page).to have_content 'コードを投稿しました'
+      end
+    end
+
+    describe 'title' do
+      context 'Codeのtitleが空文字の場合' do
+        before do
+          select 'Ruby', from: 'parse_language'
+          fill_in 'code_body', with: 'test'
+          click_on '投稿する'
+          expect(page).to have_content '詳細画面'
+        end
+        it '自動でタイトルが設定されること' do
+          expect(page).to have_content 'Code of'
+        end
       end
     end
   end
