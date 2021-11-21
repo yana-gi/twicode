@@ -16,8 +16,10 @@
       .control
         = f.text_area :body, placeholder: 'Input your code.', class: 'textarea'
     .field
-      .control
+      .control.has-icons-left.is-half
         = f.text_field :title, placeholder: Code.default_title, class: 'input'
+        .icon.is-small.is-left
+          i.fas.fa-pen
     .field
       .label Twitter投稿時のイメージ
       .control
