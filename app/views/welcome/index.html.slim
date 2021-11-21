@@ -1,20 +1,66 @@
-.column.is-8.is-offset-2.has-text-centered
-  h1.title TwiCode
-  p TwiCode はTwitterでコードを気軽に共有できるサービスです。
-  p エディタのような読みやすいコード画像を作成します。
-
-  blockquote.twitter-tweet
-    p dir="ltr" lang="ja"
-      | 自作サービスとして作っている、テキストとして入力したソースコードをいい感じ画像化してTwitterカードに表示させる処理 がやっとできてきた！想像よりもずっと難しかった……！
-      a href="https://twitter.csom/hashtag/fjordbootcamp?src=hash&ref_src=twsrc%5Etfw"  #fjordbootcamp
-      a href="https://t.co/Ob00QMrEmF"  pic.twitter.com/Ob00QMrEmF
-    | — yana-gi (@yana_gis)
-    a href="https://twitter.com/yana_gis/status/1451100165985562632?ref_src=twsrc%5Etfw"  October 21, 2021
-  script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"
-
+.welcome-items.has-text-centered
+  .welcome-item
+    h1.is-size-5.has-text-weight-bold
+      | TwitterでちょっとしたCodeを共有できるサービス
+  .welcome-item
+    .card
+      .card-image
+        = image_pack_tag 'top_1.png'
   - if logged_in?
-    = link_to 'TwiCode をつかってみる', new_code_path, class: 'button is-info p-5 my-5'
+    .welcome-item
+      = link_to 'TwiCode を使ってみる', new_code_path, class: 'button is-info has-text-weight-bold p-5'
   - else
-    = link_to '/auth/twitter', method: :post, class: 'button is-info p-5 my-5' do
-      | TwiCode をつかってみる
-    p 利用にはTwitterログインが必要です
+    .welcome-item
+      = link_to '/auth/twitter', method: :post, class: 'button is-info has-text-weight-bold p-5' do
+        | TwiCode を使ってみる
+      p
+        | 利用にはTwitterログインが必要です
+  hr
+  .welcome-item
+    h2.is-size-4.has-text-weight-bold
+      | TwiCode とは？
+  .welcome-item
+    p.has-text-weight-bold
+      | 「Twitterでちょっとしたコードを共有したい！」という時
+    .columns
+      .column.is-half
+        .my-3
+          p
+            span.icon.has-text-info.is-large
+              i.far.fa-sad-tear.fa-2x
+          p テキストで投稿すると
+          p 読みにくい
+        .card
+          .card-image
+            = image_pack_tag 'top_2.png'
+      .column.is-half
+        .my-3
+          p
+            span.icon.has-text-info.is-large
+              i.far.fa-sad-tear.fa-2x
+          p 画像で投稿すると
+          p コピーできない
+        .card
+          .card-image
+            = image_pack_tag 'top_3.png'
+  .welcome-item
+    .icon.is-large
+      i.fas.fa-angle-double-down.fa-2x
+  .welcome-item
+    p
+      span.icon.has-text-success.is-large
+        i.far.fa-smile.fa-2x
+    p TwiCodeを使うと
+    p
+      span.has-text-weight-bold 読みやすい
+      span.mx-1 &
+      span.has-text-weight-bold リンク先からコードをコピーできる
+  .welcome-item
+    .card
+      .card-image
+        = image_pack_tag 'top_1.png'
+  .welcome-item
+    p
+      | TwiCodeで画像を作成し、URLをTweetすることで
+      br
+      | Twitterカードに画像が表示されます
