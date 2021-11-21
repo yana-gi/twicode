@@ -14,7 +14,11 @@
         .has-text-grey
           div
             = "投稿日: #{l @code.created_at, format: :long}"
-
+    .my-3
+      span.icon.mr-2
+        i.fas.fa-pen
+      span
+        = @code.title
   .my-3
     span.icon.mr-2
       i.fas.fa-code
