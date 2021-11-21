@@ -20,7 +20,7 @@ module MetaTagsHelper
       twitter: {
         card: 'summary_large_image',
         site: '@twicord_y',
-        description: :description,
+        description: page_twitter_title,
         image: page_twitter_image,
         domain: 'https://twicode.herokuapp.com/'
       }
@@ -30,5 +30,9 @@ module MetaTagsHelper
 
   def page_twitter_image
     @page_image || image_url('') # rubocop:disable Rails/HelperInstanceVariable
+  end
+
+  def page_twitter_title
+    @page_title || '読みやすいコード画像をツイートできるサービス' # rubocop:disable Rails/HelperInstanceVariable
   end
 end
