@@ -6,20 +6,23 @@
         ul
           - @code.errors.full_messages.each do |message|
             li = message
-    .field
-      .control.has-icons-left
-        .select
-          = f.select :language, Code.languages.keys.to_a, {}, id: 'parse_language'
-        .icon.is-small.is-left
-          i.fas.fa-code
+    .columns
+      .column
+        .field
+          .control.has-icons-left
+            = f.text_field :title, placeholder: Code.default_title, class: 'input'
+            .icon.is-small.is-left
+              i.fas.fa-pen
+      .column
+        .field
+          .control.has-icons-left
+            .select
+              = f.select :language, Code.languages.keys.to_a, {}, id: 'parse_language'
+            .icon.is-small.is-left
+              i.fas.fa-code
     .field
       .control
         = f.text_area :body, placeholder: 'Input your code.', class: 'textarea'
-    .field
-      .control.has-icons-left.is-half
-        = f.text_field :title, placeholder: Code.default_title, class: 'input'
-        .icon.is-small.is-left
-          i.fas.fa-pen
     .field
       .label Twitter投稿時のイメージ
       .control
