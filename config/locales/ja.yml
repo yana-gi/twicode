@@ -2,10 +2,10 @@
 ja:
   activerecord:
     models:
-      code: コード
+      code: Code
     attributes:
       code:
-        body: コード
+        body: Code
         language: 言語
   date:
     abbr_day_names:
