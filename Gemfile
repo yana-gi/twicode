@@ -19,6 +19,7 @@ gem 'meta-tags'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'slim-rails'
+gem 'kaminari'
 
 group :production do
   gem 'aws-sdk-s3', require: false
