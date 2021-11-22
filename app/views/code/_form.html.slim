@@ -24,7 +24,10 @@
       .control
         = f.text_area :body, placeholder: 'Input your code.', class: 'textarea'
     .field
-      .label Twitter投稿時のイメージ
+      .label
+        | Twitterで表示されるイメージ
+        span.icon.ml-1.has-tooltip-arrow[data-tooltip="画像からはみ出てしまったテキストは、Twitterで共有するURLから参照できます"]
+          i.fas.fa-info-circle
       .control
         pre
           code
@@ -33,4 +36,6 @@
         = f.hidden_field :image_data_url, value: ''
     .field
       .control
-      .actions = f.submit '投稿する', class: "button is-light'"
+      .actions = f.submit '画像を作成する', class: "button is-light'"
+      p.has-text-grey.is-size-7
+        | Twitterに共有するURLに遷移します (まだTweetはしません)
