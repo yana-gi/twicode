@@ -2,10 +2,10 @@
   .page-title
     h1
       = image_tag @user.twitter_icon, class: 'a-user-icon m-1'
-      = "#{@user.twitter_name}の投稿一覧"
+      = "#{@user.twitter_id}の投稿一覧"
   .mb-3
     = paginate @code
-  div
+  .div
     - @code.each do |code|
       hr
       div

@@ -22,7 +22,7 @@ class CodeController < ApplicationController
     @code.attach_blob(image_data_url)
 
     if @code.save
-      redirect_to @code, notice: 'コードを投稿しました'
+      redirect_to @code, notice: '画像を作成しました！「Tweetする」ボタンからCodeを共有しよう'
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class CodeController < ApplicationController
 
   def destroy
     @code.destroy
-    redirect_to user_code_index_path(current_user.id), notice: 'コードを削除しました'
+    redirect_to user_code_index_path(current_user.id), notice: '削除しました'
   end
 
   private
