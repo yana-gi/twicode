@@ -11,7 +11,7 @@
       .page-header-item
         div
           = link_to user_code_index_path(@code.user.id), class: 'user-code-index-link has-text-weight-medium is-size-5' do
-            = @code.user.twitter_name
+            = @code.user.twitter_id
         .has-text-grey
           div
             = "投稿日: #{l @code.created_at, format: :long}"
@@ -32,7 +32,7 @@
   .code-item
   - if @code.image.attached?
     p
-      | Twitterカードのイメージ
+      | Twitterで表示される画像
       p.code-image
         = image_tag @code.image, id: 'code-image'
   .code-item
@@ -41,6 +41,8 @@
         i.fab.fa-twitter
       span
         | Tweetする
+    p.has-text-grey.is-size-7
+      | Twitterの投稿画面に遷移します
   .code-item.has-text-right
     - if current_user == @code.user
       = link_to '削除', @code, data: { confirm: '削除しますか?' }, method: :delete, class: 'button is-light'
