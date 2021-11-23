@@ -16,8 +16,8 @@ RSpec.describe 'Code', type: :system do
 
     context 'CodeのBodyが空文字の場合' do
       it '保存ができず、エラーメッセージが表示されること' do
-        click_on '投稿する'
-        expect(page).to have_content 'コードを入力してください'
+        click_on '画像を作成する'
+        expect(page).to have_content 'Codeを入力してください'
       end
     end
     context 'CodeのBodyが空文字ではない場合' do
@@ -25,9 +25,9 @@ RSpec.describe 'Code', type: :system do
         select 'Ruby', from: 'parse_language'
         fill_in 'code_body', with: 'test'
         fill_in 'code_title', with: 'Test title'
-        click_on '投稿する'
+        click_on '画像を作成する'
         expect(page).to have_content '詳細画面'
-        expect(page).to have_content 'コードを投稿しました'
+        expect(page).to have_content '画像を作成しました'
       end
     end
 
@@ -36,7 +36,7 @@ RSpec.describe 'Code', type: :system do
         before do
           select 'Ruby', from: 'parse_language'
           fill_in 'code_body', with: 'test'
-          click_on '投稿する'
+          click_on '画像を作成する'
           expect(page).to have_content '詳細画面'
         end
         it '自動でタイトルが設定されること' do
@@ -68,7 +68,7 @@ RSpec.describe 'Code', type: :system do
         it 'Codeの削除ができること' do
           click_on '削除'
           page.accept_confirm
-          expect(page).to have_content 'コードを削除しました'
+          expect(page).to have_content '削除しました'
         end
       end
       context '作成したユーザー以外の場合' do
@@ -101,7 +101,7 @@ RSpec.describe 'Code', type: :system do
     end
 
     it 'ユーザー名が表示されること' do
-      expect(page).to have_content 'Mock User Nameの投稿一覧'
+      expect(page).to have_content 'Mock Userの投稿一覧'
     end
     it '画像をクリックすると詳細画面に遷移すること' do
       find('.code-image').click
