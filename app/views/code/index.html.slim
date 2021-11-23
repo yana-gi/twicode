@@ -3,8 +3,9 @@
     h1
       = image_tag @user.twitter_icon, class: 'a-user-icon m-1'
       = "#{@user.twitter_name}の投稿一覧"
-
-  .div
+  div
+    = paginate @code
+  div
     - @code.each do |code|
       hr
       div
