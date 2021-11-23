@@ -11,8 +11,7 @@ import "channels";
 require("../src/code");
 require("../src/header");
 
-const images = require.context("../images", true);
-const imagePath = name => images(name, true);
+require.context("../images", true);
 
 Rails.start();
 Turbolinks.start();
