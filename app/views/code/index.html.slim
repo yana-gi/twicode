@@ -3,7 +3,7 @@
     h1
       = image_tag @user.twitter_icon, class: 'a-user-icon m-1'
       = "#{@user.twitter_name}の投稿一覧"
-  div
+  .mb-3
     = paginate @code
   div
     - @code.each do |code|
@@ -19,3 +19,5 @@
             = image_tag(code.image)
         div
           = l code.created_at, format: :long
+  .mb-3
+    = paginate @code
