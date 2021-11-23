@@ -7,7 +7,7 @@
     paginator    : the paginator that renders the pagination tags inside
 
 == paginator.render do
-  nav.pagination.is-centered.is-rounded
+  nav.pagination.is-centered.is-rounded.is-small
     ul.pagination-list
       == first_page_tag unless current_page.first?
       == prev_page_tag unless current_page.first?
