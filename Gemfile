@@ -15,11 +15,11 @@ gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.0'
 
 # not default
+gem 'kaminari'
 gem 'meta-tags'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'slim-rails'
-gem 'kaminari'
 
 group :production do
   gem 'aws-sdk-s3', require: false
