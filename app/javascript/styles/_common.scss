@@ -1,3 +1,26 @@
+.pagination-previous, .pagination-next, .pagination-link {
+  border: none;
+  &:active {
+    box-shadow: initial;
+  }
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}
+.pagination-link.is-current {
+  &:hover {
+    background-color: #ebcb8b;
+  }
+}
+@media screen and (min-width: 769px), print {
+  .pagination.is-centered .pagination-previous {
+    order: 0;
+  }
+  .pagination.is-centered .pagination-next {
+    order: 0;
+  }
+}
+
 .page-title {
   h1 {
     font-size: 1.25rem;
@@ -11,3 +34,4 @@
     max-width: 100%;
   }
 }
+
