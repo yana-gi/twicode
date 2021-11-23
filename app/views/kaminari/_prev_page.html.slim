@@ -6,4 +6,4 @@
     per_page     : number of items to fetch per page
     remote       : data-remote
 
-= link_to_unless current_page.first?, t('views.pagination.previous').html_safe, url, rel: 'prev', remote: remote, class: 'pagination-previous'
+= link_to_unless current_page.first?, raw('<i class="fas fa-angle-left"></i>'), url, rel: 'prev', remote: remote, class: 'pagination-previous'
