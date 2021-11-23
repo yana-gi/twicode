@@ -6,7 +6,7 @@ class CodeController < ApplicationController
 
   def index
     @user = User.find(params[:user_id] || current_user.id)
-    @code = @user.code
+    @code = @user.code.order(:created_at).page params[:page]
   end
 
   def show

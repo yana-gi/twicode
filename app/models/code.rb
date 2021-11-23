@@ -9,6 +9,8 @@ class Code < ApplicationRecord
   validates :body, presence: true
   validates :title, presence: true
 
+  paginates_per 5
+
   enum language: {
     'PlainText': 0,
     'Bash': 1,
