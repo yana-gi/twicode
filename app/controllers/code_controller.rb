@@ -15,9 +15,8 @@ class CodeController < ApplicationController
 
   def new
     @code = Code.new
-    @language_list = Language.all.order(:name)
     @selected_language = if current_user.code.empty?
-                           @language_list.first
+                           Language.all.order(:name).first
                          else
                            current_user.code.last.language.name
                          end
