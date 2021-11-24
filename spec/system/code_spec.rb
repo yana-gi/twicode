@@ -22,7 +22,7 @@ RSpec.describe 'Code', type: :system do
     end
     context 'CodeのBodyが空文字ではない場合' do
       it 'Codeの保存に成功し、詳細画面に遷移すること' do
-        select 'Ruby', from: 'parse_language'
+        select 'Ruby', from: 'code_language'
         fill_in 'code_body', with: 'test'
         fill_in 'code_title', with: 'Test title'
         click_on '画像を作成する'
@@ -34,7 +34,7 @@ RSpec.describe 'Code', type: :system do
     describe 'title' do
       context 'Codeのtitleが空文字の場合' do
         before do
-          select 'Ruby', from: 'parse_language'
+          select 'Ruby', from: 'code_language'
           fill_in 'code_body', with: 'test'
           click_on '画像を作成する'
           expect(page).to have_content '詳細画面'
