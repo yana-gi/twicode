@@ -15,6 +15,12 @@ class CodeController < ApplicationController
 
   def new
     @code = Code.new
+    @language_list = Language.all.order(:name)
+    @selected_language = if current_user.code.empty?
+                           @language_list.first
+                         else
+                           current_user.code.last.language.name
+                         end
   end
 
   def create

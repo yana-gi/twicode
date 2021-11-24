@@ -17,7 +17,7 @@
         .field
           .control.has-icons-left
             .select
-              = f.collection_select :language, Language.all.order(:name), :name, :name
+              = f.collection_select :language, @language_list, :name, :name, { selected: @selected_language }
             .icon.is-small.is-left
               i.fas.fa-code
     .field
