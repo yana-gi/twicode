@@ -1,5 +1,6 @@
 import html2canvas from "html2canvas";
 const hljs = require("highlight.js/lib/common");
+hljs.configure({ ignoreUnescapedHTML: true });
 
 document.addEventListener("turbolinks:load", () => {
   const form = document.querySelector("form");
