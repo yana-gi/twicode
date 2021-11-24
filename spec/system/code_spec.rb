@@ -15,17 +15,20 @@ RSpec.describe 'Code', type: :system do
     before { visit new_code_path }
 
     context 'CodeのBodyが空文字の場合' do
+      before { click_on '画像を作成する' }
+
       it '保存ができず、エラーメッセージが表示されること' do
-        click_on '画像を作成する'
         expect(page).to have_content 'Codeを入力してください'
       end
     end
     context 'CodeのBodyが空文字ではない場合' do
-      it 'Codeの保存に成功し、詳細画面に遷移すること' do
+      before do
         select 'Ruby', from: 'code_language'
         fill_in 'code_body', with: 'test'
-        fill_in 'code_title', with: 'Test title'
         click_on '画像を作成する'
+      end
+
+      it 'Codeの保存に成功し、詳細画面に遷移すること' do
         expect(page).to have_content '詳細画面'
         expect(page).to have_content '画像を作成しました'
       end
