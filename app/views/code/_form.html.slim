@@ -17,7 +17,7 @@
         .field
           .control.has-icons-left
             .select
-              = f.select :language, Code.languages.keys.to_a, {}, id: 'parse_language'
+              = f.collection_select :language, Language.all.order(:name), :name, :name
             .icon.is-small.is-left
               i.fas.fa-code
     .field

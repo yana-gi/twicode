@@ -5,7 +5,7 @@ document.addEventListener("turbolinks:load", () => {
   const form = document.querySelector("form");
   const textarea = document.querySelector("#code_body");
   const precode = document.querySelector("pre code");
-  const language = document.querySelector("#parse_language");
+  const language = document.querySelector("#code_language");
   const hiddenImageDataUrl = document.querySelector("#code_image_data_url");
 
   if (precode) {
