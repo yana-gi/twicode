@@ -19,6 +19,8 @@ class CodeController < ApplicationController
 
   def create
     @code = current_user.code.new(code_params)
+    ## js側の処理の都合によりlanguageのparamsの値はidではなくname
+    @code.language = Language.find_by(name: code_language)
     @code.attach_blob(image_data_url)
 
     if @code.save
@@ -40,7 +42,11 @@ class CodeController < ApplicationController
   end
 
   def code_params
-    params.require(:code).permit(:body, :language, :title)
+    params.require(:code).permit(:body, :title)
+  end
+
+  def code_language
+    params.require(:code).permit(:language)[:language]
   end
 
   def image_data_url
