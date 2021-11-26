@@ -21,7 +21,6 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "@creativebulma/bulma-tooltip": "^1.2.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
