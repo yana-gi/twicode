@@ -12,10 +12,6 @@ class Code < ApplicationRecord
 
   paginates_per 5
 
-  def self.language_list
-    Language.name_list
-  end
-
   def self.default_title
     "Code of #{(Time.zone.today).strftime('%Y/%m/%d')}"
   end
