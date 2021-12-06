@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :code, only: [:show, :new, :create, :destroy]
-  get 'users/:user_id/code', to: 'code#index', as: 'user_code_index'
+  resources :code, only: [:index], path: 'users/:user_id/code', as: 'user_code'
 
   get 'welcome', to: 'welcome#index', as: 'welcome'
   get 'tos', to: 'welcome#tos', as: 'tos'
