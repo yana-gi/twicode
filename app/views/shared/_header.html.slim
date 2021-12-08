@@ -1,0 +1,21 @@
+header
+  nav.navbar
+    .navbar-brand
+      = link_to '</ TwiCode >', root_path, class: 'navbar-item header_title'
+      .navbar-burger[data-target="navbarExampleTransparentExample"]
+        span
+        span
+        span
+    .navbar-menu#navbarExampleTransparentExample
+      .navbar-end
+        - if logged_in?
+          = link_to '新規作成', new_code_path, class: 'navbar-item has-text-weight-bold'
+          = link_to '投稿一覧', user_code_index_path(current_user.id), class: 'navbar-item has-text-weight-bold'
+          .navbar-item.has-dropdown.is-hoverable
+            .navbar-link
+              .current-user-icon
+                = image_tag current_user.twitter_icon, class: 'a-user-icon'
+            .navbar-dropdown.is-right
+              = link_to 'ログアウト', logout_path, class: 'navbar-item'
+        - else
+          = link_to 'ログイン', '/auth/twitter', method: :post, class: 'navbar-item'
