@@ -1,2 +1,9 @@
 .index-code
+  .has-text-centered
+    = link_to new_code_path, class: 'button is-black has-text-weight-bold' do
+      span.icon
+        i.fas.fa-plus
+      span
+        | 新しくコードを投稿する
+  hr
   == render 'code/code_list', code_list: @code
