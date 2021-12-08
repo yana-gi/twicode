@@ -8,10 +8,10 @@
         = image_pack_tag 'top_1.png'
   - if logged_in?
     .welcome-item
-      = link_to 'TwiCode を使ってみる', new_code_path, class: 'button is-info has-text-weight-bold p-5'
+      = link_to 'TwiCode を使ってみる', new_code_path, class: 'button is-black has-text-weight-bold py-3'
   - else
     .welcome-item
-      = link_to '/auth/twitter', method: :post, class: 'button is-info has-text-weight-bold p-5' do
+      = link_to '/auth/twitter', method: :post, class: 'button is-black has-text-weight-bold py-3' do
         | TwiCode を使ってみる
       p
         | 利用にはTwitterログインが必要です
