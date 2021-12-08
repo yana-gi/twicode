@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'home#top'
 
   resources :code, only: [:show, :new, :create, :destroy]
   get 'users/:user_id/code', to: 'code#index', as: 'user_code_index'
 
+  get 'home', to: 'home#top', as: 'home'
   get 'welcome', to: 'welcome#index', as: 'welcome'
   get 'tos', to: 'welcome#tos', as: 'tos'
   get 'privacy_policy', to: 'welcome#privacy_policy', as: 'privacy_policy'
