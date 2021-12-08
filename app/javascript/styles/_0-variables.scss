@@ -11,7 +11,7 @@ $family-sans-serif: 'ヒラギノ丸ゴ Pro W3', 'Hiragino Maru Gothic Pro', -ap
 $primary: #88c0d0;
 $text: #4a4a4a;
 $text-strong: #4a4a4a;
-$link: #ebcb8b;
+$link: $primary;
 $navbar-background-color: $primary;
 $navbar-item-hover-background-color: rgba(0, 0, 0, 0.05);
 $navbar-item-hover-color: #4a4a4a;

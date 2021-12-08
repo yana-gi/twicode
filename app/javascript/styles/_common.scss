@@ -9,7 +9,7 @@
 }
 .pagination-link.is-current {
   &:hover {
-    background-color: #ebcb8b;
+    background-color: $primary;
   }
 }
 @media screen and (min-width: 769px), print {
