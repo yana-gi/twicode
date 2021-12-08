@@ -8,10 +8,11 @@ $font-family-logo: 'Fredoka One', cursive;
 $family-sans-serif: 'ヒラギノ丸ゴ Pro W3', 'Hiragino Maru Gothic Pro', -apple-system, system-ui, 'Hiragino Sans', '游ゴシック  Medium', 'メイリオ',Meiryo, 'MS Pゴシック','MS PMGothic', sans-serif;
 
 // colors
+$primary: #88c0d0;
 $text: #4a4a4a;
 $text-strong: #4a4a4a;
 $link: #ebcb8b;
-$navbar-background-color: #88c0d0;
+$navbar-background-color: $primary;
 $navbar-item-hover-background-color: rgba(0, 0, 0, 0.05);
 $navbar-item-hover-color: #4a4a4a;
 $navbar-breakpoint: $tablet;
