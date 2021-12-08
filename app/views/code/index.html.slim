@@ -3,21 +3,4 @@
     h1
       = image_tag @user.twitter_icon, class: 'a-user-icon m-1'
       = "#{@user.twitter_id}の投稿一覧"
-  .mb-3
-    = paginate @code
-  .div
-    - @code.each do |code|
-      hr
-      div
-        .my-1
-          span.icon.mr-1
-            i.fas.fa-pen
-          span
-            = code.title
-        div
-          = link_to code, class: 'code-image' do
-            = image_tag(code.image)
-        div
-          = l code.created_at, format: :long
-  .mb-3
-    = paginate @code
+  == render 'code_list', code_list: @code

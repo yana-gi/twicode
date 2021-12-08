@@ -1,0 +1,18 @@
+.mb-3
+  = paginate code_list
+.div
+  - code_list.each do |code|
+    hr
+    div
+      .my-1
+        span.icon.mr-1
+          i.fas.fa-pen
+        span
+          = code.title
+      div
+        = link_to code, class: 'code-image' do
+          = image_tag(code.image)
+      div
+        = l code.created_at, format: :long
+.mb-3
+  = paginate code_list
