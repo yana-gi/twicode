@@ -1,66 +1,26 @@
-.welcome-items.has-text-centered
-  .welcome-item
-    h1.is-size-5.has-text-weight-bold
-      | TwitterでちょっとしたCodeを共有できるサービス
-  .welcome-item
-    .card.m-4
-      .card-image
-        = image_pack_tag 'top_1.png'
-  - if logged_in?
+.welcome
+  .welcome-items.has-text-centered
+    .welcome-item.mt-6
+      h1.welcome-title.is-size-1
+        | &lt;/
+        |  TwiCode
+        |  &gt;
+      h2.is-size-5.has-text-weight-bold
+        | ついこーど
     .welcome-item
-      = link_to 'TwiCode を使ってみる', new_code_path, class: 'button is-black has-text-weight-bold py-3'
-  - else
+      .card
+        .card-image
+          = image_pack_tag 'top_1.png'
     .welcome-item
-      = link_to '/auth/twitter', method: :post, class: 'button is-black has-text-weight-bold py-3' do
-        | TwiCode を使ってみる
+      h2.is-size-5.has-text-weight-bold
+        | TwitterでちょっとしたCodeを共有
+    - if logged_in?
+      .welcome-item
+        = link_to 'TwiCode を使ってみる', new_code_path, class: 'button is-black has-text-weight-bold is-size-5 py-3'
+    - else
+      .welcome-item
+        = link_to '/auth/twitter', method: :post, class: 'button is-black has-text-weight-bold is-size-5 py-3' do
+          | TwiCode を使ってみる
+    .welcome-item
       p
         | 利用にはTwitterログインが必要です
-  hr
-  .welcome-item
-    h2.is-size-4.has-text-weight-bold
-      | TwiCode とは？
-  .welcome-item
-    p.has-text-weight-bold
-      | 「Twitterでちょっとしたコードを共有したい！」という時
-    .columns
-      .column.is-half
-        .my-3
-          p
-            span.icon.has-text-info.is-large
-              i.far.fa-sad-tear.fa-2x
-          p テキストで投稿すると
-          p 読みにくい
-        .card
-          .card-image
-            = image_pack_tag 'top_2.png'
-      .column.is-half
-        .my-3
-          p
-            span.icon.has-text-info.is-large
-              i.far.fa-sad-tear.fa-2x
-          p 画像で投稿すると
-          p コピーできない
-        .card
-          .card-image
-            = image_pack_tag 'top_3.png'
-  .welcome-item
-    .icon.is-large
-      i.fas.fa-angle-double-down.fa-2x
-  .welcome-item
-    p
-      span.icon.has-text-success.is-large
-        i.far.fa-smile.fa-2x
-    p TwiCodeを使うと
-    p
-      span.has-text-weight-bold 読みやすい
-      span.mx-1 &
-      span.has-text-weight-bold リンク先からコードをコピーできる
-  .welcome-item
-    .card
-      .card-image
-        = image_pack_tag 'top_1.png'
-  .welcome-item
-    p
-      | TwiCodeで画像を作成し、URLをTweetすることで
-      br
-      | Twitterカードに画像が表示されます

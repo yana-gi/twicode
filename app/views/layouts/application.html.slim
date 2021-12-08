@@ -1,4 +1,6 @@
 doctype html
+/ turbolinksをオフにしたら書き換える
+/html class="#{current_page?(welcome_path) ? 'background-color-is-primary' : ''}"
 html
   head
     title
@@ -14,10 +16,13 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .container
-      = render "shared/header"
-      main.p-5
-        - if flash[:notice]
-          p class="notification is-primary is-light"
-            = flash[:notice]
+      - if current_page?(welcome_path)
         = yield
-      = render "shared/footer"
+      - else
+        = render "shared/header"
+        main.p-5
+          - if flash[:notice]
+            p class="notification is-primary is-light"
+              = flash[:notice]
+          = yield
+        = render "shared/footer"
