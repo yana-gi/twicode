@@ -10,12 +10,10 @@
       .control
         = f.text_area :body, placeholder: 'Input your code.', class: 'textarea'
     .columns
-      .column
+      .column.is-two-thirds
         .field
-          .control.has-icons-left
+          .control
             = f.text_field :title, placeholder: Code.default_title, class: 'input'
-            .icon.is-small.is-left
-              i.fas.fa-pen
       .column
         .field
           .control.has-icons-left
