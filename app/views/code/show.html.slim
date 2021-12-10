@@ -28,17 +28,20 @@
         span
           = l @code.created_at, format: :long
   .code-item
+    = link_to @tweet_url, class: 'button is-primary px-6', target: 'blank' do
+      span.icon
+        i.fab.fa-twitter
+      span
+        | この画像をTweetする
+    p.is-size-7.my-5
+      | Twitterの投稿画面に遷移します
+  hr
+  .code-item
+    h2.is-size-5.my-5
+      | 元のコード
     pre
       code
         = @code.body
   .code-item
-    = link_to @tweet_url, class: 'button is-primary', target: 'blank' do
-      span.icon
-        i.fab.fa-twitter
-      span
-        | Tweetする
-    p.has-text-grey.is-size-7
-      | Twitterの投稿画面に遷移します
-  .code-item.has-text-right
     - if current_user == @code.user
-      = link_to '削除', @code, data: { confirm: '削除しますか?' }, method: :delete, class: 'button is-light'
+      = link_to '削除する', @code, data: { confirm: '削除しますか?' }, method: :delete, class: 'button is-light'
