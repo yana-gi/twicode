@@ -3,16 +3,23 @@
 .div
   - code_list.each do |code|
     hr
-    div
-      .my-1
-        span.icon.mr-1
-          i.fas.fa-pen
-        span
-          = code.title
-      div
-        = link_to code, class: 'code-image' do
-          = image_tag(code.image)
-      div
-        = l code.created_at, format: :long
+      .columns.is-vcentered
+        .column.is-three-fifths
+          = link_to code, class: 'code-image' do
+            = image_tag(code.image)
+        .column.code-meta-items
+          .code-meta-item.is-size-5
+            = code.title
+          .code-meta-item.icon-text.is-size-7.has-text-grey
+            span.icon
+              i.fas.fa-code
+            span
+              = code.language.name
+          .code-meta-item.is-size-7.has-text-grey
+            span.mr-2
+              | 投稿日:
+            span
+              = l code.created_at, format: :long
+hr
 .mb-3
   = paginate code_list
