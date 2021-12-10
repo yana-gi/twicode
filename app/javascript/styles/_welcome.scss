@@ -7,3 +7,15 @@
 .welcome-title {
   font-family: $font-family-logo;
 }
+
+main {
+  &.welcome-page {
+    min-height: initial;
+  }
+}
+
+html, main, footer {
+  &.welcome-page {
+    background-color: #88c0d0;
+  }
+}
