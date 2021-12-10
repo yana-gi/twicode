@@ -13,7 +13,7 @@ class Code < ApplicationRecord
   paginates_per 5
 
   def self.default_title
-    "Code of #{(Time.zone.today).strftime('%Y/%m/%d')}"
+    'Untitled'
   end
 
   def attach_blob(image_data_url)
