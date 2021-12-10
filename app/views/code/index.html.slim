@@ -1,6 +1,8 @@
 .index-code
-  .page-title
-    h1
-      = image_tag @user.twitter_icon, class: 'a-user-icon m-1'
-      = "#{@user.twitter_id}の投稿一覧"
+  h1
+    .icon-text
+      span.icon.is-large.mr-2
+        = image_tag @user.twitter_icon, class: 'a-user-icon m-1'
+      span.is-size-5
+        = "#{@user.twitter_id}の投稿一覧"
   == render 'code_list', code_list: @code
