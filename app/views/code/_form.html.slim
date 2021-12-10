@@ -32,8 +32,9 @@
     .field
       .control
         = f.hidden_field :image_data_url, value: ''
+    hr
     .field
       .control
-      .actions = f.submit '画像を作成する', class: "button is-primary"
-      p.has-text-grey.is-size-7.my-1
+      .actions = f.submit '画像を作成する', class: "button is-primary has-text-weight-bold px-6"
+      p.is-size-7.my-5
         | Twitterに共有するURLに遷移します (まだTweetはしません)
