@@ -9,8 +9,9 @@ RSpec.describe 'Code', type: :system do
   before do
     mock_twitter!
     visit root_path
-    find_link('ログイン', href: '/auth/twitter').click
+    find_link('TwiCode を使ってみる', href: '/auth/twitter').click
   end
+
   describe '新規作成' do
     before { visit new_code_path }
 
@@ -43,7 +44,7 @@ RSpec.describe 'Code', type: :system do
           expect(page).to have_content '詳細画面'
         end
         it '自動でタイトルが設定されること' do
-          expect(page).to have_content 'Code of'
+          expect(page).to have_content 'Untitled'
         end
       end
     end
