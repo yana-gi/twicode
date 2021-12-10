@@ -6,6 +6,9 @@
         ul
           - @code.errors.full_messages.each do |message|
             li = message
+    .field
+      .control
+        = f.text_area :body, placeholder: 'Input your code.', class: 'textarea'
     .columns
       .column
         .field
@@ -20,9 +23,6 @@
               = f.collection_select :language, Language.all.order(:name), :name, :name, { selected: @selected_language }
             .icon.is-small.is-left
               i.fas.fa-code
-    .field
-      .control
-        = f.text_area :body, placeholder: 'Input your code.', class: 'textarea'
     .field
       .label
         | Twitterで表示されるイメージ
