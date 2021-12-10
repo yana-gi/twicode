@@ -2,39 +2,35 @@
 - @page_title = @code.title
 
 .show-code
-  .page-title
-    h1
-      |  詳細画面
-    .page-header-items
-      .page-header-item
-        = image_tag @code.user.twitter_icon, class: 'a-user-icon'
-      .page-header-item
-        div
-          = link_to user_code_index_path(@code.user.id), class: 'user-code-index-link has-text-weight-medium is-size-5' do
+  .columns.is-vcentered
+    .column.is-three-fifths
+      - if @code.image.attached?
+        p.code-image
+          = image_tag @code.image, id: 'code-image'
+    .column.code-meta-items
+      h1
+        .code-meta-item.is-size-5
+          = @code.title
+      .code-meta-item.icon-text
+        span.icon.is-medium.mr-2
+          = image_tag @code.user.twitter_icon, class: 'a-user-icon'
+        span
+          = link_to user_code_index_path(@code.user.id), class: 'user-code-index-link has-text-weight-bold' do
             = @code.user.twitter_id
-        .has-text-grey
-          div
-            = "投稿日: #{l @code.created_at, format: :long}"
-  .code-item
-    span.icon.mr-2
-      i.fas.fa-pen
-    span
-      = @code.title
-  .code-item
-    span.icon.mr-2
-      i.fas.fa-code
-    span#code_language
-      = @code.language.name
+      .code-meta-item.icon-text
+        span.icon
+          i.fas.fa-code
+        span#code_language
+          = @code.language.name
+      .code-meta-item.is-size-7.has-text-grey
+        span.mr-2
+          | 投稿日:
+        span
+          = l @code.created_at, format: :long
   .code-item
     pre
       code
         = @code.body
-  .code-item
-  - if @code.image.attached?
-    p
-      | Twitterで表示される画像
-      p.code-image
-        = image_tag @code.image, id: 'code-image'
   .code-item
     = link_to @tweet_url, class: 'button is-primary', target: 'blank' do
       span.icon
