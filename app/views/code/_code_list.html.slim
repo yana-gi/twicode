@@ -1,8 +1,14 @@
 .mb-3
   = paginate code_list
-.div
-  - code_list.each do |code|
-    hr
+- if (code_list.length.zero?)
+  .has-text-centered.has-text-grey
+    .is-size-1
+      i.far.fa-sad-tear
+    .o-empty-message__text
+      | 投稿はまだありません
+- else
+  div
+    - code_list.each do |code|
       .columns.is-vcentered
         .column.is-three-fifths
           = link_to code, class: 'code-image' do
@@ -20,6 +26,6 @@
               | 投稿日:
             span
               = l code.created_at, format: :long
-hr
+      hr
 .mb-3
   = paginate code_list
