@@ -9,13 +9,23 @@ header
     .navbar-menu#navbarExampleTransparentExample
       .navbar-end
         - if logged_in?
-          = link_to '新規作成', new_code_path, class: 'navbar-item has-text-weight-bold'
-          = link_to '投稿一覧', user_code_index_path(current_user.id), class: 'navbar-item has-text-weight-bold'
-          .navbar-item.has-dropdown.is-hoverable
-            .navbar-link
-              .current-user-icon
-                = image_tag current_user.twitter_icon, class: 'a-user-icon'
-            .navbar-dropdown.is-right
-              = link_to 'ログアウト', logout_path, class: 'navbar-item'
+          - unless current_page?(root_path)
+            .navbar-item
+              = link_to new_code_path, class: 'button is-black is-small is-rounded has-text-weight-bold' do
+                span.icon
+                  i.fas.fa-plus
+                span
+                  | 新しくコードを投稿する
+          .navbar-item
+            .current-user-icon
+              = image_tag current_user.twitter_icon, class: 'a-user-icon'
+          = link_to logout_path, class: 'navbar-item' do
+            span.icon.is-medium
+              i.fas.fa-sign-out-alt
         - else
-          = link_to 'ログイン', '/auth/twitter', method: :post, class: 'navbar-item'
+          .navbar-item
+            = link_to new_code_path, class: 'button is-black is-small is-rounded has-text-weight-bold' do
+              span.icon
+                i.fas.fa-plus
+              span
+                | 新しくコードを投稿する
