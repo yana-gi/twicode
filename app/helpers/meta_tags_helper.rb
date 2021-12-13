@@ -7,10 +7,10 @@ module MetaTagsHelper
       site: 'TwiCode',
       reverse: true,
       charset: 'utf-8',
-      description: 'TwitterでCodeを共有しよう',
+      description: 'TwitterでちょっとしたCodeを共有しよう',
       viewport: 'width=device-width, initial-scale=1.0',
       og: {
-        title: :site,
+        title: page_twitter_title,
         type: 'website',
         site_name: 'TwiCode',
         description: :description,
@@ -18,9 +18,10 @@ module MetaTagsHelper
         url: 'https://twicode.herokuapp.com/'
       },
       twitter: {
+        title: page_twitter_title,
         card: 'summary_large_image',
         site: '@twicode_y',
-        description: page_twitter_title,
+        description: :description,
         image: page_twitter_image,
         domain: 'https://twicode.herokuapp.com/'
       }
@@ -33,6 +34,6 @@ module MetaTagsHelper
   end
 
   def page_twitter_title
-    @page_title || 'TwitterでCodeを共有しよう' # rubocop:disable Rails/HelperInstanceVariable
+    @page_title || 'TwiCode' # rubocop:disable Rails/HelperInstanceVariable
   end
 end
