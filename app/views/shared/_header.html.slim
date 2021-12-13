@@ -19,7 +19,7 @@ header
           .navbar-item
             .current-user-icon
               = image_tag current_user.twitter_icon, class: 'a-user-icon'
-          = link_to logout_path, class: 'navbar-item' do
+          = link_to logout_path, class: 'navbar-item logout-link' do
             span.icon.is-medium
               i.fas.fa-sign-out-alt
         - else
