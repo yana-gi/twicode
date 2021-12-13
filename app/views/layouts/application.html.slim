@@ -2,7 +2,7 @@ doctype html
 html class="#{current_page?(welcome_path) ? 'welcome-page' : ''}"
   head
     title
-      | TwiCode
+      = content_for?(:html_title) ? "TwiCode - #{yield(:html_title)}" : "TwiCode"
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/nord.min.css"
     link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css"
     meta[name="viewport" content="width=device-width,initial-scale=1"]
