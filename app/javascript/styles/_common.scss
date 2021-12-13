@@ -64,5 +64,7 @@
 .notification {
   border-radius: 9999px;
   padding: 1.25rem 2.5rem 1.25rem 2.5rem;
+  &.is-primary, &.is-primary.is-light{
   color: #4a4a4a;
+  }
 }
