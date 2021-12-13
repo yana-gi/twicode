@@ -18,7 +18,7 @@ html class="#{current_page?(welcome_path) ? 'welcome-page' : ''}"
         = render "shared/header"
       main class="p-5 #{current_page?(welcome_path) ? 'welcome-page' : ''}"
         - if flash[:notice]
-          p class="notification is-primary is-light"
+          p class="notification is-primary #{current_page?(welcome_path) ? 'has-text-centered' : 'is-light'}"
             = flash[:notice]
         = yield
       = render "shared/footer"
