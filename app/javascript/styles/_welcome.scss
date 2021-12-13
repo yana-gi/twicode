@@ -8,14 +8,9 @@
   font-family: $font-family-logo;
 }
 
-main {
-  &.welcome-page {
-    min-height: initial;
+body, .wrapper__start, .wrapper__end {
+  &.is-welcome {
+    background: #88c0d0;
   }
 }
 
-html, main, footer {
-  &.welcome-page {
-    background-color: #88c0d0;
-  }
-}

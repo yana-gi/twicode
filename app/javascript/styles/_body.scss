@@ -1,21 +1,25 @@
 @charset "utf-8";
 
-html {
-  height: 100%;
+body {
   background-color: #f5f5f5;
 }
 
-body {
-  height: 100%;
-}
-
-main {
-  min-height: 100%;
-  background-color: #ffffff;
-}
-
-.container {
+.wrapper {
+  margin: 0 auto;
   height: 100%;
   width: 700px;
   max-width: 100%;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper__start {
+  background: #ffffff;
+  flex: 1;
+}
+
+.wrapper__end {
+  background: #ffffff;
 }

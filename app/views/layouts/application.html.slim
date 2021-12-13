@@ -1,5 +1,5 @@
 doctype html
-html class="#{current_page?(welcome_path) ? 'welcome-page' : ''}"
+html
   head
     title
       = content_for?(:html_title) ? "TwiCode - #{yield(:html_title)}" : "TwiCode"
@@ -12,13 +12,15 @@ html class="#{current_page?(welcome_path) ? 'welcome-page' : ''}"
     = favicon_link_tag('/favicon.ico')
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    .container
-      - unless current_page?(welcome_path)
-        = render "shared/header"
-      main class="p-5 #{current_page?(welcome_path) ? 'welcome-page' : ''}"
-        - if flash[:notice]
-          p class="notification is-primary #{current_page?(welcome_path) ? 'has-text-centered' : 'is-light'}"
-            = flash[:notice]
-        = yield
-      = render "shared/footer"
+  body class="#{current_page?(welcome_path) ? 'is-welcome' : ''}"
+    .wrapper
+      .wrapper__start class="#{current_page?(welcome_path) ? 'is-welcome' : ''}"
+        - unless current_page?(welcome_path)
+          = render "shared/header"
+        main.p-5
+          - if flash[:notice]
+            p class="notification is-primary #{current_page?(welcome_path) ? 'has-text-centered' : 'is-light'}"
+              = flash[:notice]
+          = yield
+      .wrapper__end class="#{current_page?(welcome_path) ? 'is-welcome' : ''}"
+        = render "shared/footer"
