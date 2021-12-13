@@ -1,5 +1,5 @@
 - @page_image = polymorphic_url(@code.image)
-- @page_title = @code.title
+- @page_title = "#{@code.title} (#{@code.language.name}) | TwiCode"
 
 .show-code
   .columns.is-vcentered
