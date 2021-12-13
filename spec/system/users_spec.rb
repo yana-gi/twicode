@@ -29,8 +29,7 @@ RSpec.describe 'Users', type: :system do
     before do
       visit root_path
       find_link('TwiCode を使ってみる', href: '/auth/twitter').click
-      find('.is-hoverable').hover
-      find_link('ログアウト', href: '/logout').click
+      find('.logout-link').click
     end
     it 'ログアウトができること' do
       expect(page).to have_content('ログアウトしました')
@@ -39,10 +38,9 @@ RSpec.describe 'Users', type: :system do
 
   describe 'ログイン状態による画面表示の確認' do
     context 'ログインしていない場合' do
-      it 'ヘッダーに新規作成・投稿一覧ボタンが表示されないこと' do
+      it 'root_pathにアクセスするとwelcome画面に遷移すること' do
         visit root_path
-        expect(page).to_not have_content('新規作成')
-        expect(page).to_not have_content('投稿一覧')
+        expect(page).to have_content('TwitterでちょっとしたCodeを共有')
       end
       it 'code新規作成画面に遷移できず、代わりにwelcome画面に遷移すること' do
         visit new_code_path
@@ -54,11 +52,8 @@ RSpec.describe 'Users', type: :system do
         visit root_path
         find_link('TwiCode を使ってみる', href: '/auth/twitter').click
       end
-      it 'ヘッダーに新規作成・投稿一覧ボタンが表示されないこと' do
-        within('nav') do
-          expect(page).to have_content('新規作成')
-          expect(page).to have_content('投稿一覧')
-        end
+      it 'Homeに新規作成ボタンが表示されること' do
+        expect(page).to have_content('新しくコードを投稿する')
       end
       it 'code新規作成画面に遷移できること' do
         visit new_code_path

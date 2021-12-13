@@ -30,7 +30,7 @@ RSpec.describe 'Code', type: :system do
       end
 
       it 'Codeの保存に成功し、詳細画面に遷移すること' do
-        expect(page).to have_content '詳細画面'
+        expect(page).to have_content 'Untitled'
         expect(page).to have_content '画像を作成しました'
       end
     end
@@ -41,7 +41,7 @@ RSpec.describe 'Code', type: :system do
           select 'Ruby', from: 'code_language'
           fill_in 'code_body', with: 'test'
           click_on '画像を作成する'
-          expect(page).to have_content '詳細画面'
+          expect(page).to have_content '画像を作成しました'
         end
         it '自動でタイトルが設定されること' do
           expect(page).to have_content 'Untitled'
@@ -61,7 +61,7 @@ RSpec.describe 'Code', type: :system do
     before do
       code = FactoryBot.create(:code, user: login_user)
       visit code_path(code)
-      expect(page).to have_content '詳細画面'
+      expect(page).to have_content 'Untitled'
     end
 
     it 'テキストコードが表示されること' do
@@ -84,8 +84,7 @@ RSpec.describe 'Code', type: :system do
       end
       context '作成したユーザー以外の場合' do
         before do
-          find('.is-hoverable').hover
-          click_on 'ログアウト'
+          find('.logout-link').click
           expect(page).to have_content 'ログアウトしました'
         end
         it 'Codeの削除ボタンが表示されないこと' do
@@ -108,7 +107,7 @@ RSpec.describe 'Code', type: :system do
     before do
       FactoryBot.create(:code, title: 'Code of login_user', user: login_user)
       FactoryBot.create(:code, title: 'Code of user_a', user: user_a)
-      click_on '投稿一覧'
+      visit user_code_index_path(login_user)
     end
 
     it 'ユーザー名が表示されること' do
@@ -116,7 +115,7 @@ RSpec.describe 'Code', type: :system do
     end
     it '画像をクリックすると詳細画面に遷移すること' do
       find('.code-image').click
-      expect(page).to have_content '詳細画面'
+      expect(page).to have_content 'Code of login_user'
     end
     it 'ユーザーが作成したCodeのみが表示されること' do
       expect(page).to have_content 'Code of login_user'
