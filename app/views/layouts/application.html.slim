@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      = content_for?(:html_title) ? "TwiCode - #{yield(:html_title)}" : "TwiCode"
+      = content_for?(:html_title) ? "TwiCode - #{yield(:html_title)}" : 'TwiCode'
     link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/nord.min.css"
     link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css"
     meta[name="viewport" content="width=device-width,initial-scale=1"]
@@ -16,11 +16,11 @@ html
     .wrapper
       .wrapper__start class="#{current_page?(welcome_path) ? 'is-welcome' : ''}"
         - unless current_page?(welcome_path)
-          = render "shared/header"
+          = render 'shared/header'
         main.p-5
           - if flash[:notice]
             p class="notification is-primary #{current_page?(welcome_path) ? 'has-text-centered' : 'is-light'}"
               = flash[:notice]
           = yield
       .wrapper__end class="#{current_page?(welcome_path) ? 'is-welcome' : ''}"
-        = render "shared/footer"
+        = render 'shared/footer'

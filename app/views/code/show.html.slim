@@ -1,4 +1,4 @@
-- content_for(:html_title) { "#{@code.title}" }
+- content_for(:html_title) { @code.title.to_s }
 - @page_image = polymorphic_url(@code.image)
 - @page_title = "#{@code.title} (#{@code.language.name}) | TwiCode"
 
