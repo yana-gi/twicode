@@ -54,7 +54,9 @@
 .card {
   border-radius: 16px;
   box-shadow: initial;
-  margin: 0 5rem;
+  min-width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
   padding: 0.15rem;
   .card-image {
     margin: 1em;
