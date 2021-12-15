@@ -6,6 +6,7 @@
 
 .welcome-title {
   font-family: $font-family-logo;
+  white-space: nowrap;
 }
 
 body, .wrapper__start, .wrapper__end {
